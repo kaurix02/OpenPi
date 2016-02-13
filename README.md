@@ -1,6 +1,6 @@
 # OpenPi
 
-##Functional
+##Functional Requirements
 
 1. OpenPi shall have an ability to log in, log out and registration options
 2. OpenPI shall have a secure way to store user's data
@@ -16,10 +16,10 @@
 12. OpenPi shall give the user an ability to rate the service, pizzas and also leave a review
 13. OpenPI shall have a cart with user's pending products, where the price is automatically calculated
 14. OpenPi shall have a pop-up area on screen during order session where total price will be shown
-15. OpenPi shall have user's setting 
+15. OpenPi shall have user's settings and account management abilities 
 16. OpenPi shall give to management staff a list of deliveries
 
-##Non-Functional
+##Non-Functional requirements
 
 1. OpenPi shall have an uptime of 24/7
 2. OpenPi shall work fast and smooth
