@@ -1,5 +1,7 @@
 # OpenPi
-Functional
+
+##Functional
+
 1. OpenPi shall have an ability to log in, log out and registration options
 2. OpenPI shall have a secure way to store user's data
 3. OpenPi shall save user's previous choices and deliveries on user's permission
@@ -17,7 +19,8 @@ Functional
 15. OpenPi shall have user's setting 
 16. OpenPi shall give to management staff a list of deliveries
 
-Non-Functional
+##Non-Functional
+
 1. OpenPi shall have an uptime of 24/7
 2. OpenPi shall work fast and smooth
 3. OpenPi shall be secure and defended from attacks (Partly Optional)
