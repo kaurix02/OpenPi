@@ -25,3 +25,8 @@
 2. OpenPi shall work fast and smooth
 3. OpenPi shall be secure and defended from attacks (Partly Optional)
 4. OpenPi shall have a user-friendly with high usability interface
+
+
+## Prototype
+
+https://drive.google.com/folderview?id=0B-28tiMH_KuQOG5mMEM5V19WaHM&usp=sharing
