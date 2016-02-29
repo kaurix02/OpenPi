@@ -32,7 +32,6 @@ public class AppController {
     @RequestMapping(value = {"/pizzas"}, method = RequestMethod.GET)
     public String listPizzas(ModelMap model) {
         List<Pizza> pizzas = pizzaService.findAllPizzas();
-        System.err.print(pizzas);
         model.addAttribute("pizzas", pizzas);
         return "allpizzas";
     }

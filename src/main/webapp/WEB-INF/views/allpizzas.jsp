@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>OpenPi Service</title>
+    <link href="resources/pizzaspage/pizzas.css" rel="stylesheet">
 </head>
 <body>
     <h1>Pizzas</h1>

@@ -27,7 +27,7 @@ public class Pizza {
     @Column(name = "naming", unique = true, nullable = false)
     private String naming;
 
-    @NotNull
+    @NotEmpty
     @Size(min = 4, max = 300)
     @Column(name = "description", nullable = false)
     private String description;
