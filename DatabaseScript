@@ -1,0 +1,21 @@
+CREATE TABLE pizzas
+(
+  id serial NOT NULL,
+  naming character varying(50) NOT NULL,
+  description character varying(300) NOT NULL,
+  CONSTRAINT pizzas_pkey PRIMARY KEY (id),
+  CONSTRAINT pizzas_naming_key UNIQUE (naming)
+)
+
+CREATE TABLE users
+(
+  id serial NOT NULL,
+  first_name varchar(100) NOT NULL,
+  last_name varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  password varchar(30) NOT NULL,
+  CONSTRAINT users_pkey PRIMARY KEY (id),
+  CONSTRAINT users_email_key UNIQUE (email)
+)
+
+

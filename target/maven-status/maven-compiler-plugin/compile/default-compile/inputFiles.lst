@@ -1,10 +1,15 @@
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/service/UserService.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/controller/AppController.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/service/PizzaService.java
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/dao/UserDaoImpl.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/dao/PizzaDao.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/configuration/AppInitializer.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/dao/AbstractDao.java
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/model/Pizza.java
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/dao/UserDao.java
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/model/User.java
+/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/service/UserServiceImpl.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/configuration/AppConfig.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/service/PizzaServiceImpl.java
-/home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/model/Pizza.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/configuration/HibernateConfiguration.java
 /home/alandu/IdeaProjects/OpenPi/src/main/java/ee/ut/dao/PizzaDaoImpl.java

@@ -27,14 +27,19 @@ public class User {
     private String firstName;
 
     @NotEmpty
-
     @Size(min = 2, max = 100)
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
     @NotEmpty
+    @Size(max = 100)
     @Column(name = "email", nullable = false)
     private String email;
+
+    @NotEmpty
+    @Size(min = 8, max = 30)
+    @Column(name = "password", nullable = false)
+    private String password;
 
     public int getId() {
         return id;
@@ -65,6 +70,10 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() {return password;}
+
+    public void setPassword(String password) {this.password = password;}
 
     @Override
     public boolean equals(Object obj) {

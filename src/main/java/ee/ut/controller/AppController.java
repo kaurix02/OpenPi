@@ -6,11 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import ee.ut.model.Pizza;
 import ee.ut.service.PizzaService;
+
+import ee.ut.model.User;
+import ee.ut.service.UserService;
+
+import javax.validation.Valid;
 
 
 @Controller
@@ -18,13 +24,10 @@ import ee.ut.service.PizzaService;
 public class AppController {
 
     @Autowired
-    PizzaService pizzaService;
-
-    //@Autowired
-    //UserService userService;
+    private PizzaService pizzaService;
 
     @Autowired
-    MessageSource messageSource;
+    private UserService userService;
 
     /*
      * This method will list all existing pizzas.
@@ -33,13 +36,34 @@ public class AppController {
     public String listPizzas(ModelMap model) {
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("pizzas", pizzas);
-        return "allpizzas";
+        return "allpizzas_page";
     }
 
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
-        return "mainpage";
+        return "main_page";
     }
+
+    @RequestMapping(value = {"/registration"}, method = RequestMethod.GET)
+    public String registrationPage(ModelMap model){
+        User user = new User();
+        model.addAttribute("user", user);
+        return "registration_page";
+    }
+
+    @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
+    public String saveUser(@Valid User user, BindingResult result,
+                           ModelMap model) {
+        if (!userService.isUserEmailUnique(user.getEmail())) {
+            return "registration_page";
+        }
+
+        userService.saveUser(user);
+
+        return "registration_page";
+    }
+
+
 
     /*
      * This method will provide the medium to register a new user.

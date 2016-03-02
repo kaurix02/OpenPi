@@ -31,11 +31,4 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
-
-    @Bean
-    public MessageSource messageSource() {
-        ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
-        return messageSource;
-    }
 }
