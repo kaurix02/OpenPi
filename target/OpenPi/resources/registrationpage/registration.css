@@ -4,6 +4,18 @@ body {
     background-color: #eee;
 }
 
+#alertUnique{
+    visibility: visible !important;
+}
+
+.alert-danger {
+    width: 220px !important;
+}
+
+.alert-success {
+    width: 220px !important;
+}
+
 .container {
     margin-left: 20% !important;
 }
@@ -24,6 +36,7 @@ body {
     padding: 15px;
     margin: 0 auto;
 }
+
 .form-registration .form-registration-heading,
 .form-registration .checkbox {
     margin-bottom: 10px;

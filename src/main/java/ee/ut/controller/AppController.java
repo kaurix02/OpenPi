@@ -48,6 +48,8 @@ public class AppController {
     public String registrationPage(ModelMap model){
         User user = new User();
         model.addAttribute("user", user);
+        model.addAttribute("notUnique", false);
+        model.addAttribute("registrationSuccess", false);
         return "registration_page";
     }
 
@@ -55,12 +57,18 @@ public class AppController {
     public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
         if (!userService.isUserEmailUnique(user.getEmail())) {
+            model.addAttribute("notUnique", true);
             return "registration_page";
         }
-
         userService.saveUser(user);
-
+        model.addAttribute("registrationSuccess", true);
+        model.addAttribute("user", new User());
         return "registration_page";
+    }
+
+    @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
+    public String loginPage(ModelMap model) {
+        return "";
     }
 
 

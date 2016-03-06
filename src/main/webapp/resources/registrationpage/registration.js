@@ -1,5 +1,5 @@
 var i;
-var nodeList = document.getElementsByClassName("alert alert-danger");
+var nodeList = document.getElementsByClassName("align-right");
 for (i = 0; i < nodeList.length; i++) {
     nodeList[i].style.visibility = "hidden";
 }
@@ -54,6 +54,7 @@ element.addEventListener("click", function(event) {
     }
 
     if(temp) {
+        inputPassword.value = calcMD5(inputPassword.value);
         document.getElementById("formRegistration").submit();
     }
 
