@@ -3,6 +3,7 @@ var nodeList = document.getElementsByClassName("align-right");
 for (i = 0; i < nodeList.length; i++) {
     nodeList[i].style.visibility = "hidden";
 }
+/*document.getElementById("inputPassword").value = "X";*/
 var element = document.getElementById("registrationButton");
 element.addEventListener("click", function(event) {
     var inputFirstName = document.getElementById("inputFirstName");
