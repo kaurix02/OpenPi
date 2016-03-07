@@ -4,17 +4,17 @@ body {
     background-color: #eee;
 }
 
+.container {
+    margin: 0 auto !important;
+}
+
 #alertUnique{
     visibility: visible !important;
     width: 207px;
 }
 
-.alert-success {
+#alertSuccess{
     width: 207px !important;
-}
-
-.container {
-    margin: 0 auto !important;
 }
 
 #registrationButton {
