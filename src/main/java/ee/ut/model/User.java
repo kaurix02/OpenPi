@@ -1,11 +1,6 @@
 package ee.ut.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -13,6 +8,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
@@ -40,6 +38,16 @@ public class User {
     @Size(min = 32, max = 32)
     @Column(name = "password", nullable = false)
     private String password;
+
+    @NotEmpty
+    @Column(name="state", nullable=false)
+    private String state = State.ACTIVE.getState();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_user_roles",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "user_role_id") })
+    private Set<UserRole> userRoles = new HashSet<UserRole>();
 
     public int getId() {
         return id;
@@ -74,6 +82,14 @@ public class User {
     public String getPassword() {return password;}
 
     public void setPassword(String password) {this.password = password;}
+
+    public String getState() {return state;}
+
+    public void setState(String state) {this.state = state;}
+
+    public Set<UserRole> getUserRoles() {return userRoles;}
+
+    public void setUserRoles(Set<UserRole> userRoles) {this.userRoles = userRoles;}
 
     @Override
     public boolean equals(Object obj) {

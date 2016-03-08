@@ -14,8 +14,32 @@ CREATE TABLE users
   last_name varchar(100) NOT NULL,
   email varchar(100) NOT NULL,
   password varchar(32) NOT NULL,
+  state VARCHAR(30) NOT NULL,
   CONSTRAINT users_pkey PRIMARY KEY (id),
   CONSTRAINT users_email_key UNIQUE (email)
 )
 
+/* user_roles table contains all possible roles */
+CREATE TABLE user_roles(
+   id serial NOT NULL,
+   type VARCHAR(30) NOT NULL,
+   CONSTRAINT user_roles_pkey PRIMARY KEY (id),
+   CONSTRAINT user_roles_type_key UNIQUE (type)
+);
+
+/* JOIN TABLE for MANY-TO-MANY relationship*/
+CREATE TABLE users_user_roles (
+    user_id INTEGER NOT NULL,
+    user_role_id INTEGER NOT NULL,
+    CONSTRAINT users_user_roles_pkey PRIMARY KEY (user_id, user_role_id),
+    CONSTRAINT users_user_roles_users_fk FOREIGN KEY (user_id) REFERENCES users (id),
+    CONSTRAINT users_user_roles_user_roles_fk FOREIGN KEY (user_role_id) REFERENCES user_roles (id)
+);
+
+/* Populate user_roles Table */
+INSERT INTO user_roles(type)
+VALUES ('USER');
+
+INSERT INTO user_roles(type)
+VALUES ('ADMIN');
 

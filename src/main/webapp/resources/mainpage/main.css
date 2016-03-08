@@ -1,18 +1,36 @@
 body {
-  background-image: url("/OpenPi/resources/images/wood_background.jpg") !important;
+  background-image: url("../images/red_background.jpg") !important;
   padding-top: 20px;
 }
 
-/* OpenPi service name is 50px */
+li#liUserMenu {
+  background-color: #ffb51a !important;
+  color: #eee !important;
+}
 
+li#liLogIn {
+  background-color: #ffb51a !important;
+  color: #eee !important;
+}
+
+
+/* OpenPi service name is 50px */
 .text-muted {
-  color: #FF7373 !important;
+  color: #ffb51a !important;
   font-size: 50px !important;
-  font-weight: bold !important;
+  font-style: italic !important;
+}
+
+p.lead {
+  color: #eee !important;
+}
+
+h2 {
+  color: #ffb51a !important;
 }
 
 .offer {
-  color: #FF7373 !important;
+  color: #eee !important;
   font-size: 70px !important;
   font-weight: bold !important;
 }
@@ -31,6 +49,7 @@ body {
   text-align: center;
   background-color: transparent;
 }
+
 .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
@@ -43,6 +62,8 @@ body {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+/*Customize direct child link of a li which is a direct child of element that has class="nav-justified"*/
 .nav-justified > li > a {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -50,12 +71,12 @@ body {
   font-weight: bold;
   color: #777;
   text-align: center;
-  background-color: #e5e5e5; /* Old browsers */
+  /*background-color: #e5e5e5; /* Old browsers
   background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
   background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
   background-image:      -o-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
   background-image:         linear-gradient(to bottom, #f5f5f5 0%,#e5e5e5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); *//* IE6-9 */
   background-repeat: repeat-x; /* Repeat the gradient */
   border-bottom: 1px solid #d5d5d5;
 }

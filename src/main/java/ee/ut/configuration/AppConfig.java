@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "ee.ut")
-//Instead dispatcher-servlet.xml
+//Instead dispatcher-servlet.xml (Servlet)
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Bean

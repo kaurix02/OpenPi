@@ -3,38 +3,28 @@ body {
     padding-bottom: 40px;
 }
 
-div#divRegistration {
+div#divLogin {
     margin: 0 auto !important;
-    padding-left: 20% !important;
+    padding-right: 5% !important;
 }
 
-#alertUnique{
+#alertInvalid{
     visibility: visible !important;
-    width: 207px;
+    width: 280px;
 }
 
 #alertSuccess{
-    width: 207px !important;
+    width: 280px !important;
 }
 
-#registrationButton {
-    float: left;
-    width: 45%;
-}
-
-.align-right {
-    float: right;
-    width: 55%;
-}
-
-.form-registration {
-    max-width: 490px;
+.form-login {
+    max-width: 310px;
     width: 100%;
     padding: 15px;
     margin: 0 auto;
 }
 
-.form-registration .form-control {
+.form-login .form-control {
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -42,26 +32,17 @@ div#divRegistration {
     box-sizing: border-box;
     padding: 10px;
     font-size: 16px;
-
-    float: left;
-    width: 45%;
 }
-.form-registration .form-control:focus {
+.form-login .form-control:focus {
     z-index: 2;
 }
-.form-registration input[type="email"] {
+.form-login input[type="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.form-registration input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-
-.form-registration input[type="password"] {
+.form-login input[type="password"] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
