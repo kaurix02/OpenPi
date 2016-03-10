@@ -1,0 +1,45 @@
+/*Overall*/
+body {
+    background-image: url("../resources/images/red_background.jpg");
+}
+.nav-justified {
+    border: 1px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+.nav-justified > li {
+    border: 1px solid #ccc;
+}
+
+.nav-justified > li > a {
+    font-weight: bold;
+    color: #777;
+    background-color: #e5e5e5;
+}
+
+#logo {
+    font-weight: bold;
+    font-size: 50px;
+    color: #ffb51a;
+}
+
+.offer {
+    color: #eee !important;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.lead {
+    color: #eee
+}
+
+.jumbotron {
+    background-color: transparent;
+    padding: 20px;
+    text-align: center;
+}
+
+#goRegisterButton {
+    font-size: 30px;
+}
