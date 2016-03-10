@@ -5,7 +5,7 @@ CREATE TABLE pizzas
   description character varying(300) NOT NULL,
   CONSTRAINT pizzas_pkey PRIMARY KEY (id),
   CONSTRAINT pizzas_naming_key UNIQUE (naming)
-)
+);
 
 CREATE TABLE users
 (
@@ -17,7 +17,7 @@ CREATE TABLE users
   state VARCHAR(30) NOT NULL,
   CONSTRAINT users_pkey PRIMARY KEY (id),
   CONSTRAINT users_email_key UNIQUE (email)
-)
+);
 
 /* user_roles table contains all possible roles */
 CREATE TABLE user_roles(
@@ -43,3 +43,20 @@ VALUES ('USER');
 INSERT INTO user_roles(type)
 VALUES ('ADMIN');
 
+aiven:
+jdbc.driverClassName = org.postgresql.Driver
+jdbc.url = jdbc:postgresql://openpi.prj-mmxcm5.aivencloud.com:10995/openpidatabase?sslmode=require
+jdbc.username = u7b4i4t8
+jdbc.password = djt0ouiv79wcwuy4
+hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+hibernate.show_sql = true
+hibernate.format_sql = true
+
+localhost:
+jdbc.driverClassName = org.postgresql.Driver
+jdbc.url = jdbc:postgresql://localhost:5432/OpenPiDatabase
+jdbc.username = postgres
+jdbc.password = DkjPGH875pz!
+hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+hibernate.show_sql = true
+hibernate.format_sql = true

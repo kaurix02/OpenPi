@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -47,23 +48,23 @@
                 </c:if>
 
                 <label for="inputFirstName" class="sr-only">First Name</label>
-                <form:input type="text" id="inputFirstName" class="form-control" placeholder="First Name" path="firstName"/>
+                <form:input type="text" class="form-control" id="inputFirstName" placeholder="First Name" path="firstName"/>
                 <div class="alert alert-danger align-right" role="alert" id="alertFirstName">...</div>
 
                 <label for="inputLastName" class="sr-only">Last Name</label>
-                <form:input type="text" id="inputLastName" class="form-control" placeholder="Last Name" path="lastName"/>
+                <form:input type="text" class="form-control" id="inputLastName" placeholder="Last Name" path="lastName"/>
                 <div class="alert alert-danger align-right" role="alert" id="alertLastName">...</div>
 
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <form:input type="email" id="inputEmail" class="form-control" placeholder="Email address" path="email"/>
+                <form:input type="email" class="form-control" id="inputEmail" placeholder="Email address" path="email"/>
                 <div class="alert alert-danger align-right" role="alert" id="alertEmail">...</div>
 
                 <label for="inputPassword" class="sr-only">Password</label>
-                <form:input type="password" id="inputPassword" class="form-control" placeholder="Password" path="password"/>
+                <form:input type="password" class="form-control" id="inputPassword" placeholder="Password" path="password"/>
                 <div class="alert alert-danger align-right" role="alert" id="alertPassword">...</div>
 
                 <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
-                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password"/>
+                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"/>
                 <div class="alert alert-danger align-right" role="alert" id="alertConfirmPassword">...</div>
 
                 <button class="btn btn-lg btn-primary btn-block" type="button" id="registrationButton">Register</button>
