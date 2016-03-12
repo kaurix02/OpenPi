@@ -1,9 +1,15 @@
-var i;
-var nodeList = document.getElementsByClassName("align-right");
+var element = document.getElementById("registrationButton");
+element.addEventListener("click", function(event) {
+    var inputPassword = document.getElementById("inputPassword");
+    if (inputPassword.value.length != 0 && (inputPassword.value == document.getElementById("inputConfirmPassword").value)) {
+        inputPassword.value = calcMD5(inputPassword.value);
+        document.getElementById("registrationForm").submit();
+    }
+});
+/*var nodeList = document.getElementsByClassName("align-right");
 for (i = 0; i < nodeList.length; i++) {
     nodeList[i].style.visibility = "hidden";
 }
-/*document.getElementById("inputPassword").value = "X";*/
 var element = document.getElementById("registrationButton");
 element.addEventListener("click", function(event) {
     var inputFirstName = document.getElementById("inputFirstName");
@@ -59,4 +65,6 @@ element.addEventListener("click", function(event) {
         document.getElementById("formRegistration").submit();
     }
 
-});
+});*/
+
+

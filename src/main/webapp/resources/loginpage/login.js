@@ -1,5 +1,6 @@
-var element = document.getElementById("buttonLogIn");
+var element = document.getElementById("loginButton");
 element.addEventListener("click", function(event) {
-    document.getElementById("inputPassword").value = calcMD5(document.getElementById("inputPassword").value);
-    document.getElementById("formLogIn").submit();
+    var temp = document.getElementById("loginPassword").value
+    document.getElementById("loginPassword").value = calcMD5(temp);
+    document.getElementById("loginForm").submit();
 });

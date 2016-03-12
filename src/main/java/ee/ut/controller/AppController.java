@@ -57,10 +57,9 @@ public class AppController {
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
         if (!(getPrincipal() == null)){
-            model.addAttribute("firstName", userService.findUserByEmail(getPrincipal()).getFirstName());
+            model.addAttribute("userFirstName", userService.findUserByEmail(getPrincipal()).getFirstName());
             model.addAttribute("isAuthorized", true);
         } else model.addAttribute("isAuthorized", false);
-        //model.addAttribute("welcome", getPrincipal());
         return "main_page";
     }
 
@@ -72,8 +71,6 @@ public class AppController {
     public String registrationPage(ModelMap model){
         User user = new User();
         model.addAttribute("user", user);
-        model.addAttribute("isUnique", true);
-        model.addAttribute("registrationSuccess", false);
         return "registration_page";
     }
 
@@ -84,17 +81,14 @@ public class AppController {
     @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
         if (!userService.isUserEmailUnique(user.getEmail())) {
-            model.addAttribute("isUnique", false);
             user.setPassword(null);
             model.addAttribute("user", user);
-            return "registration_page";
+            return "redirect:/registration?unique";
         }
         user.getUserRoles().add(userRoleService.findRoleByType(UserRoleType.USER.getUserRoleType()));
         userService.saveUser(user);
-        model.addAttribute("registrationSuccess", true);
-        model.addAttribute("isUnique", true);
         model.addAttribute("user", new User());
-        return "registration_page";
+        return "redirect:/registration?success";
     }
 
     /*

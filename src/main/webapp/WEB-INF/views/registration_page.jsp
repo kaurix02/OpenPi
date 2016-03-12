@@ -11,8 +11,7 @@
     <meta name="author" content="">
     <title>OpenPi Pizza Service!</title>
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="resources/registrationpage/registration.css" rel="stylesheet">
-    <link href="resources/mainpage/main.css" rel="stylesheet">
+    <link href="resources/openpi.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
     <script src="resources/registrationpage/md5.js"></script>
@@ -23,57 +22,34 @@
 </head>
 <body>
     <div class="container">
-        <div class="masthead">
-            <h3 class="text-muted">OpenPi</h3>
-            <nav>
-                <ul class="nav nav-justified">
-                    <li><a href="<c:url value="/" />">Home</a></li>
-                    <li><a href="<c:url value="/pizzas" />">Pizzas</a></li>
-                    <li><a href="<c:url value="/login" />">Log In</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h3 id="logo">OpenPi</h3>
+        <nav>
+            <ul class="nav nav-justified">
+                <li><a href="<c:url value="/" />">Home</a></li>
+                <li><a href="<c:url value="/pizzas" />">Pizzas</a></li>
+                <li><a href="<c:url value="/login" />">Log In</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
         <!-- Container -->
-        <div class="container" id="divRegistration">
-            <form:form cssClass="form-registration" method="POST" modelAttribute="user" id="formRegistration">
-                <form:input type="hidden" path="id" id="id"/>
-                <h2 class="form-registration-heading">Registration</h2>
-                <c:if test="${!isUnique}">
-                    <div class="alert alert-danger" role="alert" id="alertUnique">This email is already in use</div>
+        <div class="container">
+            <form:form method="post" modelAttribute="user" id="registrationForm">
+                <h2 id="registration">Registration</h2>
+                <c:if test="${param.unique != null}">
+                    <div class="alert alert-danger" role="alert">This email is already in use</div>
                 </c:if>
-                <c:if test="${registrationSuccess}">
-                    <div class="alert alert-success" role="alert" id="alertSuccess">Success!</div>
+                <c:if test="${param.success != null}">
+                    <div class="alert alert-success" role="alert">Success!</div>
                 </c:if>
-
-                <label for="inputFirstName" class="sr-only">First Name</label>
-                <form:input type="text" class="form-control" id="inputFirstName" placeholder="First Name" path="firstName"/>
-                <div class="alert alert-danger align-right" role="alert" id="alertFirstName">...</div>
-
-                <label for="inputLastName" class="sr-only">Last Name</label>
-                <form:input type="text" class="form-control" id="inputLastName" placeholder="Last Name" path="lastName"/>
-                <div class="alert alert-danger align-right" role="alert" id="alertLastName">...</div>
-
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <form:input type="email" class="form-control" id="inputEmail" placeholder="Email address" path="email"/>
-                <div class="alert alert-danger align-right" role="alert" id="alertEmail">...</div>
-
-                <label for="inputPassword" class="sr-only">Password</label>
+                <form:input type="text" class="form-control" placeholder="First Name" path="firstName"/>
+                <form:input type="text" class="form-control" placeholder="Last Name" path="lastName"/>
+                <form:input type="text" class="form-control" placeholder="Email address" path="email"/>
                 <form:input type="password" class="form-control" id="inputPassword" placeholder="Password" path="password"/>
-                <div class="alert alert-danger align-right" role="alert" id="alertPassword">...</div>
-
-                <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
                 <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"/>
-                <div class="alert alert-danger align-right" role="alert" id="alertConfirmPassword">...</div>
-
-                <button class="btn btn-lg btn-primary btn-block" type="button" id="registrationButton">Register</button>
+                <button type="button" class="btn btn-lg btn-primary btn-block" id="registrationButton">Register</button>
             </form:form>
         </div>
-        <!-- Site footer -->
-        <footer class="footer">
-            <p>&copy; 2016 OpenPi, Tartu</p>
-        </footer>
     </div> <!-- /container -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->

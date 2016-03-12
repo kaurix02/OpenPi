@@ -15,23 +15,20 @@ body {
 .nav-justified > li > a {
     font-weight: bold;
     color: #777;
-    background-color: #e5e5e5;
 }
 
-#logo {
+li.active:hover {
+    background-color: #eee;
+}
+
+li.active {
+    background-color: #ffffff;
+}
+
+h3#logo {
     font-weight: bold;
     font-size: 50px;
     color: #ffb51a;
-}
-
-.offer {
-    color: #eee !important;
-    font-size: 70px;
-    font-weight: bold;
-}
-
-.lead {
-    color: #eee
 }
 
 .jumbotron {
@@ -40,6 +37,67 @@ body {
     text-align: center;
 }
 
-#goRegisterButton {
+form {
+    width: 30%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+form > input {
+    height: 45px !important;
+}
+
+/* main_page.jsp */
+.jumbotron > .offer {
+    color: #eee !important;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.jumbotron > .lead {
+    color: #eee
+}
+
+.jumbotron > #linkRegisterButton {
     font-size: 30px;
+}
+
+/*Registered User */
+.nav-justified > li#registeredUser {
+    background-color: #ffb51a;
+}
+
+.nav-justified > li#registeredUser > a {
+    color: #eee;
+}
+
+.nav-justified > li#registeredUser:hover{
+    background-color: #5cb85c;
+}
+
+.nav-justified > li#registeredUser > a:hover {
+    background-color: #5cb85c;
+}
+
+/* Unauthorized User */
+.nav-justified > li#unRegisteredUser {
+    background-color: #ffb51a;
+}
+
+.nav-justified > li#unRegisteredUser > a {
+    color: #eee;
+}
+
+.nav-justified > li#unRegisteredUser > a:hover{
+    background-color: #ffb51a;
+}
+
+/* Login page */
+.alert {
+    margin-bottom: 0px !important;
+}
+
+/* Registration page */
+#registration {
+    color: #ffb51a;
 }

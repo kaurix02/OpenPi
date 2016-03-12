@@ -23,7 +23,12 @@
             <ul class="nav nav-justified">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Pizzas</a></li>
-                <li><a href="#">Log In</a></li>
+                <c:if test="${isAuthorized}">
+                    <li id="registeredUser"><a href="<c:url value="/user"/>">${userFirstName}</a></li>
+                </c:if>
+                <c:if test="${!isAuthorized}">
+                    <li id="unRegisteredUser"><a href="<c:url value="/login"/>">Log In</a></li>
+                </c:if>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
@@ -31,7 +36,10 @@
         <div class="jumbotron">
             <h1 class="offer">Offers</h1>
             <p class="lead">Try the TOP Estonian pizza at our place!</p>
-            <p><a class="btn btn-lg btn-success" id="goRegisterButton" href="<c:url value="/registration"/>" role="button">Registration</a></p>
+            <c:if test="${!isAuthorized}">
+                <p><a class="btn btn-lg btn-success" id="linkRegisterButton" href="<c:url value="/registration"/>" role="button">Registration</a></p>
+            </c:if>
+
         </div>
     </div>
 </body>
