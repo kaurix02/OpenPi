@@ -42,11 +42,16 @@
                 <c:if test="${param.success != null}">
                     <div class="alert alert-success" role="alert">Success!</div>
                 </c:if>
-                <form:input type="text" class="form-control" placeholder="First Name" path="firstName"/>
-                <form:input type="text" class="form-control" placeholder="Last Name" path="lastName"/>
-                <form:input type="text" class="form-control" placeholder="Email address" path="email"/>
+                <form:input type="text" class="form-control" id="inputFirstName" placeholder="First Name" path="firstName"/>
+                <div class="alert alert-danger regalert" id="invalidFirstName" role="alert">Invalid First Name!</div>
+                <form:input type="text" class="form-control" id="inputLastName" placeholder="Last Name" path="lastName"/>
+                <div class="alert alert-danger regalert" id="invalidLastName" role="alert">Invalid Last Name!</div>
+                <form:input type="text" class="form-control" id="inputEmail" placeholder="Email address" path="email"/>
+                <div class="alert alert-danger regalert" id="invalidEmail" role="alert">Invalid Email!</div>
                 <form:input type="password" class="form-control" id="inputPassword" placeholder="Password" path="password"/>
+                <div class="alert alert-danger regalert" id="invalidPassword" role="alert">Invalid Password!</div>
                 <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"/>
+                <div class="alert alert-danger regalert" id="invalidConfirmPassword" role="alert">Passwords must match!</div>
                 <button type="button" class="btn btn-lg btn-primary btn-block" id="registrationButton">Register</button>
             </form:form>
         </div>

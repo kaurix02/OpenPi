@@ -3,6 +3,7 @@ package ee.ut.controller;
 import java.util.HashSet;
 import java.util.List;
 
+import ee.ut.helpmodules.RegistrationHelp;
 import ee.ut.model.UserRole;
 import ee.ut.model.UserRoleType;
 import ee.ut.service.UserRoleService;
@@ -79,7 +80,7 @@ public class AppController {
      */
 
     @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
-    public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
+    public String saveUser(User user, BindingResult result, ModelMap model) {
         if (!userService.isUserEmailUnique(user.getEmail())) {
             user.setPassword(null);
             model.addAttribute("user", user);

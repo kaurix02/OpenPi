@@ -101,3 +101,24 @@ form > input {
 #registration {
     color: #ffb51a;
 }
+
+form#registrationForm {
+    width: 50%;
+    margin-left: 40%;
+}
+
+form#registrationForm > .regalert {
+    height: 45px;
+    float:right;
+    width:55%;
+}
+
+form#registrationForm > input {
+    float: left;
+    width:45%;
+}
+
+form#registrationForm > button {
+    flaor: left;
+    width: 45%;
+}
