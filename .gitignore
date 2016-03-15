@@ -1,3 +1,7 @@
 /.idea/*
 /target/*
 OpenPi.iml
+/target/
+/.settings/
+.classpath
+.project
