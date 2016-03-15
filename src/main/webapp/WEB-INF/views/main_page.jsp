@@ -22,7 +22,7 @@
         <nav>
             <ul class="nav nav-justified">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Pizzas</a></li>
+                <li><a href="<c:url value="/pizzas" />">Pizzas</a></li>
                 <c:if test="${isAuthorized}">
                     <li id="registeredUser"><a href="<c:url value="/user"/>">${userFirstName}</a></li>
                 </c:if>

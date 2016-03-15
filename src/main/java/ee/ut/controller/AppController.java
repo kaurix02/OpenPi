@@ -3,15 +3,16 @@ package ee.ut.controller;
 import java.util.HashSet;
 import java.util.List;
 
+import ee.ut.helpmodules.OverallHelp;
 import ee.ut.helpmodules.RegistrationHelp;
 import ee.ut.model.UserRole;
 import ee.ut.model.UserRoleType;
 import ee.ut.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.session.HttpSessionCreatedEvent;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ import ee.ut.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 
@@ -43,12 +45,17 @@ public class AppController {
     @Autowired
     private UserRoleService userRoleService;
 
+    @Autowired
+    private HttpSession httpSession;
+
     /*
      * This method will list all existing pizzas.
      */
     @RequestMapping(value = {"/pizzas"}, method = RequestMethod.GET)
     public String listPizzas(ModelMap model) {
         List<Pizza> pizzas = pizzaService.findAllPizzas();
+        model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() +"*"+httpSession.getId());
+        SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("pizzas", pizzas);
         return "allpizzas_page";
     }
@@ -57,8 +64,8 @@ public class AppController {
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
-        if (!(getPrincipal() == null)){
-            model.addAttribute("userFirstName", userService.findUserByEmail(getPrincipal()).getFirstName());
+        if (!(new OverallHelp().getPrincipal() == null)){
+            model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             model.addAttribute("isAuthorized", true);
         } else model.addAttribute("isAuthorized", false);
         return "main_page";
@@ -107,7 +114,7 @@ public class AppController {
 
     @RequestMapping(value = "/access_denied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
+        model.addAttribute("user", new OverallHelp().getPrincipal());
         return "access_denied_page";
     }
 
@@ -124,14 +131,5 @@ public class AppController {
         return "redirect:/login?logout";
     }
 
-    private String getPrincipal(){
-        String email = null;
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (principal instanceof UserDetails) {
-            email = ((UserDetails)principal).getUsername();
-        }
-
-        return email;
-    }
 }

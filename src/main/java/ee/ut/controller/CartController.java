@@ -1,6 +1,9 @@
 package ee.ut.controller;
 
-import ee.ut.helpmodules.OverallHelp;
+/**
+ * Created by alandu on 15.03.16.
+ */
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -9,13 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/cart")
+public class CartController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String userPage(ModelMap model) {
-        model.addAttribute("user", new OverallHelp().getPrincipal());
+        model.addAttribute("user", getPrincipal());
         model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails());
         return "user_page";
+    }
+
+    private String getPrincipal(){
+        String email = null;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            email = ((UserDetails)principal).getUsername();
+        }
+        return email;
     }
 }

@@ -8,6 +8,10 @@
 </head>
 <body>
     <h1>Pizzas</h1>
+    <p>${test}</p>
+    <a href="<c:url value="/cart/"/>">
+        <button>Start Shopping</button>
+    </a>
     <table>
         <tr>
             <td>Naming</td><td>Description</td>
@@ -16,6 +20,7 @@
             <tr>
                 <td>${pizza.naming}</td>
                 <td>${pizza.description}</td>
+                <td><button type="button">Buy</button></td>
             </tr>
         </c:forEach>
     </table>
