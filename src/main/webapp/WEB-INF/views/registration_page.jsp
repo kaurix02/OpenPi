@@ -37,10 +37,10 @@
             <form:form method="post" modelAttribute="user" id="registrationForm">
                 <h2 id="registration">Registration</h2>
                 <c:if test="${param.unique != null}">
-                    <div class="alert alert-danger" role="alert">This email is already in use</div>
+                    <div class="alert alert-danger regalert1" role="alert">This email is already in use</div>
                 </c:if>
                 <c:if test="${param.success != null}">
-                    <div class="alert alert-success" role="alert">Success!</div>
+                    <div class="alert alert-success regalert1" role="alert">Success!</div>
                 </c:if>
                 <form:input type="text" class="form-control" id="inputFirstName" placeholder="First Name" path="firstName"/>
                 <div class="alert alert-danger regalert" id="invalidFirstName" role="alert">Invalid First Name!</div>

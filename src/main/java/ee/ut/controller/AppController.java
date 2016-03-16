@@ -33,9 +33,7 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/")
 public class AppController {
-
     @Autowired
     private PizzaService pizzaService;
 
@@ -53,9 +51,12 @@ public class AppController {
      */
     @RequestMapping(value = {"/pizzas"}, method = RequestMethod.GET)
     public String listPizzas(ModelMap model) {
+        if (new OverallHelp().getPrincipal() != null) {
+            return "redirect:/cart/";
+        }
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() +"*"+httpSession.getId());
-        SecurityContextHolder.getContext().getAuthentication();
+        model.addAttribute("isShopping", false);
         model.addAttribute("pizzas", pizzas);
         return "allpizzas_page";
     }
@@ -86,8 +87,9 @@ public class AppController {
      * Confirm Registration if (user is valid) suceess; else tell about it and tell to try again;
      */
 
-    @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String saveUser(User user, BindingResult result, ModelMap model) {
+        //return "redirect:/";
         if (!userService.isUserEmailUnique(user.getEmail())) {
             user.setPassword(null);
             model.addAttribute("user", user);

@@ -33,7 +33,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").access("hasRole('ADMIN')")
                 .and().formLogin().loginPage("/login")
                 .usernameParameter("email").passwordParameter("password")
-                .and().csrf()
-                .and().exceptionHandling().accessDeniedPage("/registration");
+                .and().csrf().disable();
+                /*.and().csrf()
+                .and().exceptionHandling().accessDeniedPage("/");*/
     }
 }

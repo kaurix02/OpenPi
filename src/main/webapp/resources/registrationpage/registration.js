@@ -33,7 +33,7 @@ element.addEventListener("click", function(event) {
         document.getElementById("invalidPassword").style.visibility = "hidden";
     }
 
-    if (inputPassword.value == inputConfirmPassword.value) {
+    if (inputPassword.value != inputConfirmPassword.value) {
         document.getElementById("invalidConfirmPassword").style.visibility = "visible";
         temp &= false;
     } else {

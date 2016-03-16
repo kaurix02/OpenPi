@@ -10,9 +10,8 @@
 <html>
 <head>
     <title>Hello, ${user}</title>
-    <p>${test}</p>
 </head>
 <body>
-
+    <p>${test}</p>
 </body>
 </html>

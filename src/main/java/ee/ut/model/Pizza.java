@@ -14,9 +14,13 @@ import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name="pizzas")
-public class Pizza {
+public class Pizza implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

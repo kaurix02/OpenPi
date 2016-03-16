@@ -122,3 +122,7 @@ form#registrationForm > button {
     flaor: left;
     width: 45%;
 }
+
+form#registrationForm > .regalert1 {
+    width:45%;
+}
