@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-//@Scope("session")
+@Scope("session")
 @RequestMapping("/cart")
 public class CartController {
     @Autowired
@@ -36,7 +36,7 @@ public class CartController {
     @Autowired
     private PizzaService pizzaService;
 
-    private List<Pizza> listOfProducts = new ArrayList<>();
+    private ShoppingCart shoppingCart = new ShoppingCart();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getCartShopping(ModelMap model) {
@@ -45,18 +45,20 @@ public class CartController {
         model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() + "*"+new OverallHelp().getPrincipal() + "*"+httpSession.getId());
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("pizzas", pizzas);
+        String str = "[";
+        for (Pizza p:shoppingCart.getShoppingCart()) str += p.getNaming() + ", "; str += "]";
+        model.addAttribute("cartItems", str);
         return "allpizzas_page";
     }
 
     @RequestMapping(value = "addToCart", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)//, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody Pizza addToCart(@RequestBody Pizza pizza){// BindingResult result, ModelMap model){//) {
-        /*listOfProducts.add(pizza);
-        ShoppingCart sc = new ShoppingCart();
-        sc.setShoppingCart(listOfProducts);*/
+    public @ResponseBody ShoppingCart addToCart(@RequestBody Pizza pizza){// BindingResult result, ModelMap model){//) {
+        shoppingCart.getShoppingCart().add(pizza);
+        //sc.setShoppingCart(listOfProducts);*/
         //log.info(listOfProducts.toString());
         //System.err.println("***********************************" +listOfProducts + "**************************************************");
         //model.addAttribute("listOfProducts", listOfProducts.toString());
-        return pizza;
+        return shoppingCart;
     }
 }

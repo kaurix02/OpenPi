@@ -1,6 +1,7 @@
 package ee.ut.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
 public class ShoppingCart implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private List<Pizza> shoppingCart;
+    private List<Pizza> shoppingCart = new ArrayList<>();
 
     public List<Pizza> getShoppingCart() {
         return shoppingCart;

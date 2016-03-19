@@ -29,7 +29,13 @@ for (i = 0; i < buttons.length; i++) {
                 description: document.getElementById("pizzaDescription"+event.target.id).innerHTML}),
             contentType: 'application/json',
             success: function(data) {
-                alert(data.naming);
+                var str = "[";
+                for (i = 0; i < data.shoppingCart.length; i++) {
+                    str += data.shoppingCart[i].naming;
+                    str += ","
+                }
+                str += "]";
+                document.getElementById("shoppingCart").innerHTML = str;
             }
         });
 

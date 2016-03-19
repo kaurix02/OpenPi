@@ -34,6 +34,9 @@
             </tr>
         </c:forEach>
     </table>
+    <c:if test="${isShopping}">
+        <div id="shoppingCart">${cartItems}</div>
+    </c:if>
 </body>
 <c:if test="${isShopping}" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
