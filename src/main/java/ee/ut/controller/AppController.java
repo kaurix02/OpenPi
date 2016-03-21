@@ -52,6 +52,7 @@ public class AppController {
     @RequestMapping(value = {"/pizzas"}, method = RequestMethod.GET)
     public String listPizzas(ModelMap model) {
         if (new OverallHelp().getPrincipal() != null) {
+            //model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             return "redirect:/cart/";
         }
         List<Pizza> pizzas = pizzaService.findAllPizzas();

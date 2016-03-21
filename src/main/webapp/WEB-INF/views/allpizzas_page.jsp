@@ -4,39 +4,90 @@
 <html>
 <head>
     <title>OpenPi Service</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">-->
+    <title>Login page</title>
+    <c:if test="${isShopping}">
+        <link href="<c:url value="/"/>resources/css/bootstrap.min.css"  rel="stylesheet"/>
+        <link href="<c:url value="/"/>resources/openpi.css" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="<c:url value="/"/>resources/js/bootstrap.min.js"></script>
+    </c:if>
+    <c:if test="${!isShopping}">
+        <link href="resources/css/bootstrap.min.css"  rel="stylesheet"/>
+        <link href="resources/openpi.css" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
+    </c:if>
     <!--[if lt IE 9] -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-    <h1>Pizzas</h1>
-    <p>${test}</p>
-    <c:if test="${isShopping}">
-        <p>${listOfProducts}</p>
-    </c:if>
-    <c:if test="${!isShopping}">
-        <a href="<c:url value="/cart/"/>">
-            <button>Start Shopping</button>
-        </a>
-    </c:if>
-    <table>
-        <tr>
-            <td>Naming</td><td>Description</td>
-        </tr>
-        <c:forEach items="${pizzas}" var="pizza">
-            <tr>
-                <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
-                <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
+    <div class="container">
+        <h3 id="logo">OpenPi</h3>
+        <nav>
+            <ul class="nav nav-justified">
+                <li><a href="<c:url value="/" />">Home</a></li>
+                <li class="active"><a href="<c:url value="/pizzas" />">Pizzas</a></li>
                 <c:if test="${isShopping}">
-                    <td><button type="button" id="${pizza.id}" >Buy</button></td>
+                    <li><a href="<c:url value="/user" />">${userFirstName}</a></li>
                 </c:if>
-            </tr>
-        </c:forEach>
-    </table>
-    <c:if test="${isShopping}">
-        <div id="shoppingCart">${cartItems}</div>
-    </c:if>
+                <c:if test="${!isShopping}">
+                    <li><a href="<c:url value="/login" />">Log In</a></li>
+                </c:if>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="container pizzaOffers">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h1 id="pizzaPage">Pizzas</h1>
+                    <!--p class="lead">${test}</p>-->
+                    <!--<c:if test="${isShopping}">
+                        <p>${listOfProducts}</p>
+                    </c:if> -->
+                    <c:if test="${!isShopping}">
+
+                    </c:if>
+                    <table class="lead">
+                        <tr>
+                            <td>Naming</td><td>Description</td>
+                        </tr>
+                        <c:forEach items="${pizzas}" var="pizza">
+                            <tr>
+                                <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
+                                <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
+                                <c:if test="${isShopping}">
+                                    <td><button type="button" class="btn btn-sm btn-warning" id="${pizza.id}" >Buy</button></td>
+                                </c:if>
+                            </tr>
+                        </c:forEach>
+                    </table>
+                </div>
+                <div class="col-sm-3">
+                    <ul id="sidebar" class="nav nav-stacked affix">
+                        <c:if test="${isShopping}">
+                            <c:forEach items="${shoppingCart}" var="cart">
+                                <li>${cart}</li>
+                            </c:forEach>
+                        </c:if>
+                        <c:if test="${!isShopping}">
+                            <a href="<c:url value="/cart/"/>">
+                                <button class="btn btn-lg btn-success">Start Shopping</button>
+                            </a>
+                        </c:if>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <c:if test="${isShopping}" >
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

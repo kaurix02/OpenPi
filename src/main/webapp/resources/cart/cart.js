@@ -29,13 +29,19 @@ for (i = 0; i < buttons.length; i++) {
                 description: document.getElementById("pizzaDescription"+event.target.id).innerHTML}),
             contentType: 'application/json',
             success: function(data) {
-                var str = "[";
-                for (i = 0; i < data.shoppingCart.length; i++) {
-                    str += data.shoppingCart[i].naming;
-                    str += ","
+                /*var str = "[";
+                var i = 0
+                for (key in data.shoppingCart) {
+                    if (i < data.shoppingCart.length - 1) {
+                        str += "["+key + ": " + data.shoppingCart[key] + "]" + ", ";
+                    } else {
+                        str += "["+key + ": " + data.shoppingCart[key] + "]";
+                    }
+                    i++;
                 }
                 str += "]";
-                document.getElementById("shoppingCart").innerHTML = str;
+                document.getElementById("shoppingCart").innerHTML = str;*/
+                location.reload();
             }
         });
 

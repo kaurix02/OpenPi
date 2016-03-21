@@ -40,21 +40,20 @@ public class CartController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getCartShopping(ModelMap model) {
-        model.addAttribute("listOfProducts", "empty");
         model.addAttribute("isShopping", true);
         model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() + "*"+new OverallHelp().getPrincipal() + "*"+httpSession.getId());
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("pizzas", pizzas);
-        String str = "[";
-        for (Pizza p:shoppingCart.getShoppingCart()) str += p.getNaming() + ", "; str += "]";
-        model.addAttribute("cartItems", str);
+        /* Shopping Cart */
+        model.addAttribute("userFirstName", new OverallHelp().getPrincipal());
+        model.addAttribute("shoppingCart", shoppingCart.getShoppingCart());
         return "allpizzas_page";
     }
 
     @RequestMapping(value = "addToCart", method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)//, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ShoppingCart addToCart(@RequestBody Pizza pizza){// BindingResult result, ModelMap model){//) {
-        shoppingCart.getShoppingCart().add(pizza);
+        shoppingCart.addToShoppingCart(pizza);
         //sc.setShoppingCart(listOfProducts);*/
         //log.info(listOfProducts.toString());
         //System.err.println("***********************************" +listOfProducts + "**************************************************");

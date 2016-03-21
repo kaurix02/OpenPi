@@ -126,3 +126,41 @@ form#registrationForm > button {
 form#registrationForm > .regalert1 {
     width:45%;
 }
+
+/* Cart and pizzas page */
+/*@media (min-width: 767px) {
+    .affix, .affix-top {
+        position: fixed;
+    }
+}*/
+
+table.lead td, p.lead{
+    color:#eee
+}
+
+h1#pizzaPage {
+    color: #ffb51a;
+}
+
+div.container.pizzaOffers {
+    padding-top: 20px;
+}
+
+div.container.pizzaOffers > div#col-sm-9 {
+    float: left;
+    width: 80%;
+}
+
+div.container.pizzaOffers > div#col-sm-3 {
+    float: right;
+    width: 20%;
+}
+
+ul#sidebar {
+    background-color: #ffb51a;
+}
+
+ul#sidebar > li {
+    color: #eee;
+    font-size: 21px;
+}
