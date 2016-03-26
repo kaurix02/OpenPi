@@ -7,9 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by alandu on 16.03.16.
- */
 public class ShoppingCart implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -27,6 +24,12 @@ public class ShoppingCart implements Serializable {
         if (shoppingCart.containsKey(pizza.getNaming())) {
             shoppingCart.replace(pizza.getNaming(), shoppingCart.get(pizza.getNaming()) + 1);
         } else shoppingCart.put(pizza.getNaming(), 1);
+    }
+
+    public void removeFromShoppingCart(Pizza pizza) {
+        if (shoppingCart.containsKey(pizza.getNaming()) && shoppingCart.get(pizza.getNaming()) > 1) {
+            shoppingCart.replace(pizza.getNaming(), shoppingCart.get(pizza.getNaming()) - 1);
+        } else shoppingCart.remove(pizza.getNaming());
     }
 
 }

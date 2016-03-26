@@ -36,10 +36,10 @@
                 <li><a href="<c:url value="/" />">Home</a></li>
                 <li class="active"><a href="<c:url value="/pizzas" />">Pizzas</a></li>
                 <c:if test="${isShopping}">
-                    <li><a href="<c:url value="/user" />">${userFirstName}</a></li>
+                    <li id="registeredUser"><a href="<c:url value="/user" />">${userFirstName}</a></li>
                 </c:if>
                 <c:if test="${!isShopping}">
-                    <li><a href="<c:url value="/login" />">Log In</a></li>
+                    <li id="unRegisteredUser"><a href="<c:url value="/login" />">Log In</a></li>
                 </c:if>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
@@ -65,7 +65,7 @@
                                 <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                                 <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
                                 <c:if test="${isShopping}">
-                                    <td><button type="button" class="btn btn-sm btn-warning" id="${pizza.id}" >Buy</button></td>
+                                    <td><button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >Buy</button></td>
                                 </c:if>
                             </tr>
                         </c:forEach>
@@ -75,8 +75,14 @@
                     <ul id="sidebar" class="nav nav-stacked affix">
                         <c:if test="${isShopping}">
                             <c:forEach items="${shoppingCart}" var="cart">
-                                <li>${cart}</li>
+                                <li id="pizza${cart}">${cart}</li>
+                                <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">Remove</button></li>
                             </c:forEach>
+                            <c:if test="${shoppingCart.size() > 0}">
+                                <li><a href="<c:url value="/cart/"/>">
+                                    <button class="btn btn-lg btn-success">Checkout</button>
+                                </a></li>
+                            </c:if>
                         </c:if>
                         <c:if test="${!isShopping}">
                             <a href="<c:url value="/cart/"/>">

@@ -25,29 +25,48 @@
             <h3 id="logo">OpenPi</h3>
             <nav>
                 <ul class="nav nav-justified">
-                    <li><a href="<c:url value="/" />">Home</a></li>
-                    <li><a href="<c:url value="/pizzas" />">Pizzas</a></li>
-                    <li class="active"><a href="<c:url value="/login" />">Log In</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
+                    <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
+                    <li class="active"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisse logimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
+                    <li><a href="#"><c:if test="${isEstonian}">Meiest</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+                    <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
                 </ul>
             </nav>
         <!-- Container -->
         <div class="container">
             <c:url var="loginUrl" value="/login" />
             <form action="${loginUrl}" method="post" id="loginForm">
-                <c:if test="${param.error != null}">
-                    <div class="alert alert-danger" role="alert">Invalid username and password</div>
+                <c:if test="${isEstonian}">
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-danger" role="alert">Vale email või parool!</div>
+                    </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success" role="alert">Te logisite välja!</div>
+                    </c:if>
+                    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
+                    <input type="text" name="email" class="form-control" placeholder="Email" required/>
+                    <!--<label for="inputPassword" class="sr-only">Password</label>-->
+                    <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Parool" required/>
+                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+                    <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Logi Sisse</button>
                 </c:if>
-                <c:if test="${param.logout != null}">
-                    <div class="alert alert-success" role="alert">You have been logged out successfully.</div>
+                <c:if test="${!isEstonian}">
+                    <c:if test="${param.error != null}">
+                        <div class="alert alert-danger" role="alert">Invalid email and password</div>
+                    </c:if>
+                    <c:if test="${param.logout != null}">
+                        <div class="alert alert-success" role="alert">You have been logged out successfully.</div>
+                    </c:if>
+                    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
+                    <input type="text" name="email" class="form-control" placeholder="Email address" required/>
+                    <!--<label for="inputPassword" class="sr-only">Password</label>-->
+                    <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" required/>
+                    <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
+                    <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Log In</button>
+
                 </c:if>
-                <!--<label for="inputEmail" class="sr-only">Email address</label>-->
-                <input type="text" name="email" class="form-control" placeholder="Email address" required/>
-                <!--<label for="inputPassword" class="sr-only">Password</label>-->
-                <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" required/>
-                <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
-                <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Log In</button>
+
+
             </form>
         </div>
     </div>

@@ -47,6 +47,10 @@ form > input {
     height: 45px !important;
 }
 
+p.language {
+    margin: 0 auto;
+}
+
 /* main_page.jsp */
 .jumbotron > .offer {
     color: #eee !important;

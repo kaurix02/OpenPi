@@ -21,26 +21,38 @@
         <h3 id="logo">OpenPi</h3>
         <nav>
             <ul class="nav nav-justified">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="<c:url value="/pizzas" />">Pizzas</a></li>
+                <li class="active"><a href="#"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
+                <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
                 <c:if test="${isAuthorized}">
                     <li id="registeredUser"><a href="<c:url value="/user"/>">${userFirstName}</a></li>
                 </c:if>
                 <c:if test="${!isAuthorized}">
-                    <li id="unRegisteredUser"><a href="<c:url value="/login"/>">Log In</a></li>
+                    <li id="unRegisteredUser"><a href="<c:url value="/login"/>"><c:if test="${isEstonian}">Sisse logimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
                 </c:if>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#"><c:if test="${isEstonian}">Meiest</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+                <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
             </ul>
         </nav>
         <div class="jumbotron">
-            <h1 class="offer">Offers</h1>
-            <p class="lead">Try the TOP Estonian pizza at our place!</p>
+            <h1 class="offer">
+                <c:if test="${isEstonian}">Pakkumised</c:if>
+                <c:if test="${!isEstonian}">Offers</c:if>
+            </h1>
+            <p class="lead"><c:if test="${isEstonian}">Proovi Eesti parim pitsat meiega!</c:if> <c:if test="${!isEstonian}">Try the TOP Estonian pizza at our place!</c:if></p>
             <c:if test="${!isAuthorized}">
-                <p><a class="btn btn-lg btn-success" id="linkRegisterButton" href="<c:url value="/registration"/>" role="button">Registration</a></p>
+                <p><a class="btn btn-lg btn-success" id="linkRegisterButton" href="<c:url value="/registration"/>" role="button">
+                    <c:if test="${isEstonian}">Registreerumine</c:if>
+                    <c:if test="${!isEstonian}">Registration</c:if>
+                </a></p>
             </c:if>
 
         </div>
+        <p class="language">
+            <form action="" method="post">
+                <c:if test="${!isEstonian}"><button name="string" value="estonian" class="btn btn-lg btn-warning" type="submit">EE</button></c:if>
+                <c:if test="${isEstonian}"><button name="string" value="english" class="btn btn-lg btn-warning" type="submit">EN</button></c:if>
+            </form>
+        </p>
     </div>
 </body>
 </html>

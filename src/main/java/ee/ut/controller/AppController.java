@@ -5,10 +5,11 @@ import java.util.List;
 
 import ee.ut.helpmodules.OverallHelp;
 import ee.ut.helpmodules.RegistrationHelp;
-import ee.ut.model.UserRole;
-import ee.ut.model.UserRoleType;
+import ee.ut.model.*;
 import ee.ut.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -16,15 +17,15 @@ import org.springframework.security.web.session.HttpSessionCreatedEvent;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.security.core.Authentication;
 
-import ee.ut.model.Pizza;
 import ee.ut.service.PizzaService;
 
-import ee.ut.model.User;
 import ee.ut.service.UserService;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,6 +34,7 @@ import javax.validation.Valid;
 
 
 @Controller
+@Scope("session")
 public class AppController {
     @Autowired
     private PizzaService pizzaService;
@@ -46,6 +48,8 @@ public class AppController {
     @Autowired
     private HttpSession httpSession;
 
+    private boolean isEstonian = false;
+
     /*
      * This method will list all existing pizzas.
      */
@@ -55,6 +59,7 @@ public class AppController {
             //model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             return "redirect:/cart/";
         }
+        model.addAttribute("isEstonian", isEstonian);
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() +"*"+httpSession.getId());
         model.addAttribute("isShopping", false);
@@ -70,7 +75,20 @@ public class AppController {
             model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             model.addAttribute("isAuthorized", true);
         } else model.addAttribute("isAuthorized", false);
+        model.addAttribute("isEstonian", isEstonian);
         return "main_page";
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public String setLanguage(String string){// BindingResult result, ModelMap model){//) {
+        if (string.equals("estonian")) {
+            isEstonian = true;
+        } else isEstonian = false;
+        //sc.setShoppingCart(listOfProducts);*/
+        //log.info(listOfProducts.toString());
+        //System.err.println("***********************************" +listOfProducts + "**************************************************");
+        //model.addAttribute("listOfProducts", listOfProducts.toString());
+        return "redirect:/";
     }
 
     /*
@@ -80,6 +98,7 @@ public class AppController {
     @RequestMapping(value = {"/registration"}, method = RequestMethod.GET)
     public String registrationPage(ModelMap model){
         User user = new User();
+        model.addAttribute("isEstonian", isEstonian);
         model.addAttribute("user", user);
         return "registration_page";
     }
@@ -108,6 +127,7 @@ public class AppController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(ModelMap model) {
+        model.addAttribute("isEstonian", isEstonian);
         return "login_page";
     }
 

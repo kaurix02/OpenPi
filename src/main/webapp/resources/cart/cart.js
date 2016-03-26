@@ -10,7 +10,7 @@
     });
 });*/
 
-var buttons = document.getElementsByTagName("button");
+var buttons = document.getElementsByClassName("addPizza");
 for (i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function(event) {
         //console.log(document.getElementById("pizzaNaming"+event.target.id).value);
@@ -44,7 +44,43 @@ for (i = 0; i < buttons.length; i++) {
                 location.reload();
             }
         });
+    });
+}
 
+var buttons2 = document.getElementsByClassName("removePizza");
+for (i = 0; i < buttons2.length; i++) {
+    buttons2[i].addEventListener("click", function(event) {
+        //console.log(document.getElementById("pizzaNaming"+event.target.id).value);
+        $.ajax({
+            type: "POST",
+            url: "../cart/removeFromCart",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            mimeType: 'application/json',
+            //dataType: 'json',
+            data: JSON.stringify({
+                id: 0,
+                naming: document.getElementById("pizza" + event.target.id).innerHTML.split("=")[0],
+                description: "any"}),
+            contentType: 'application/json',
+            success: function(data) {
+                /*var str = "[";
+                 var i = 0
+                 for (key in data.shoppingCart) {
+                 if (i < data.shoppingCart.length - 1) {
+                 str += "["+key + ": " + data.shoppingCart[key] + "]" + ", ";
+                 } else {
+                 str += "["+key + ": " + data.shoppingCart[key] + "]";
+                 }
+                 i++;
+                 }
+                 str += "]";
+                 document.getElementById("shoppingCart").innerHTML = str;*/
+                location.reload();
+            }
+        });
     });
 }
 /*
