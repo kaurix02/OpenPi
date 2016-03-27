@@ -170,7 +170,7 @@
             <h1 id="fb-welcome"></h1>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
-            <a href="/SpringSocial/social/facebook/signin" >Log in with facebook!</a>
+            <!--<a href="/SpringSocial/social/facebook/signin" >Log in with facebook!</a>-->
             <div id="status"></div>
         </div>
     </div>
