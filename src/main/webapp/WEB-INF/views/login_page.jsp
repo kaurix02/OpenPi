@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,8 +27,8 @@
                 <ul class="nav nav-justified">
                     <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
                     <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
-                    <li class="active"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisse logimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
-                    <li><a href="#"><c:if test="${isEstonian}">Meiest</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+                    <li class="active"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisselogimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
+                    <li><a href="#"><c:if test="${isEstonian}">Meist</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
                     <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
                 </ul>
             </nav>
@@ -43,9 +43,9 @@
                     <c:if test="${param.logout != null}">
                         <div class="alert alert-success" role="alert">Te logisite välja!</div>
                     </c:if>
-                    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
-                    <input type="text" name="email" class="form-control" placeholder="Email" required/>
-                    <!--<label for="inputPassword" class="sr-only">Password</label>-->
+                    <label for="loginEmail" class="sr-only">Email address</label>
+                    <input type="text" name="email" class="form-control" id="loginEmail" placeholder="Email" required/>
+                    <label for="loginPassword" class="sr-only">Password</label>
                     <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Parool" required/>
                     <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
                     <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Logi Sisse</button>
@@ -57,9 +57,9 @@
                     <c:if test="${param.logout != null}">
                         <div class="alert alert-success" role="alert">You have been logged out successfully.</div>
                     </c:if>
-                    <!--<label for="inputEmail" class="sr-only">Email address</label>-->
-                    <input type="text" name="email" class="form-control" placeholder="Email address" required/>
-                    <!--<label for="inputPassword" class="sr-only">Password</label>-->
+                    <label for="loginEmail" class="sr-only">Email address</label>
+                    <input type="text" name="email" class="form-control" id="loginEmail" placeholder="Email address" required/>
+                    <label for="loginPassword" class="sr-only">Password</label>
                     <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" required/>
                     <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
                     <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Log In</button>
@@ -79,4 +79,5 @@
     <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 </body>
     <script src="resources/loginpage/login.js"></script>
+</body>
 </html>

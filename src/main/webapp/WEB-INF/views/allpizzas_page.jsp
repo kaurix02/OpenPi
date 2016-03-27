@@ -1,16 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>OpenPi Service</title>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <!--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">-->
-    <title>Login page</title>
+    <title>Pizzas page</title>
     <c:if test="${isShopping}">
         <link href="<c:url value="/"/>resources/css/bootstrap.min.css"  rel="stylesheet"/>
         <link href="<c:url value="/"/>resources/openpi.css" rel="stylesheet"/>
@@ -33,16 +33,16 @@
         <h3 id="logo">OpenPi</h3>
         <nav>
             <ul class="nav nav-justified">
-                <li><a href="<c:url value="/" />">Home</a></li>
-                <li class="active"><a href="<c:url value="/pizzas" />">Pizzas</a></li>
+                <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
+                <li class="active"><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
                 <c:if test="${isShopping}">
                     <li id="registeredUser"><a href="<c:url value="/user" />">${userFirstName}</a></li>
                 </c:if>
                 <c:if test="${!isShopping}">
-                    <li id="unRegisteredUser"><a href="<c:url value="/login" />">Log In</a></li>
+                    <li id="unRegisteredUser"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisselogimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
                 </c:if>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#"><c:if test="${isEstonian}">Meist</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+                    <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
             </ul>
         </nav>
         <div class="container pizzaOffers">
@@ -85,9 +85,9 @@
                             </c:if>
                         </c:if>
                         <c:if test="${!isShopping}">
-                            <a href="<c:url value="/cart/"/>">
+                            <li><a href="<c:url value="/cart/"/>">
                                 <button class="btn btn-lg btn-success">Start Shopping</button>
-                            </a>
+                            </a></li>
                         </c:if>
                     </ul>
                 </div>
