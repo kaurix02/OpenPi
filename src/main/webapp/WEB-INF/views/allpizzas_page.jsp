@@ -86,7 +86,7 @@
                     </c:if>
                     <c:if test="${!isShopping}">
                         <li><a href="<c:url value="/cart/"/>">
-                            <button class="btn btn-lg btn-success">Start Shopping</button>
+                            <input type="button" class="btn btn-lg btn-success" value="Start Shopping" />
                         </a></li>
                     </c:if>
                 </ul>
