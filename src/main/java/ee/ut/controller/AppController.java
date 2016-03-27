@@ -144,7 +144,7 @@ public class AppController {
         user.getUserRoles().add(userRoleService.findRoleByType(UserRoleType.USER.getUserRoleType()));
         user.setPassword(UUID.randomUUID().toString().replace("-", ""));
         userService.saveUser(user);
-        model.addAttribute("user", new User());
+        model.addAttribute("user", user);
 
         Authentication auth =
                 new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());

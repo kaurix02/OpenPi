@@ -89,7 +89,6 @@
         function testAPI() {
             console.log('Welcome!  Fetching your information.... ');
             FB.api('/me', function(response) {
-                var email = response.name.replace(" ", "_") + "@facebook.com";
                 $.ajax({
                     type: "POST",
                     url: window.location.href.replace("login", "facebooklogin"),
