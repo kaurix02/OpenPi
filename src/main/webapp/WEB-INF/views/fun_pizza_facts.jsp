@@ -69,12 +69,12 @@
         {
             var nextId = window.location.hash.replace("#", "")
         }
-        var url = window.location.origin  + "/openpi/funpizzafacts/iwantsomefact?id=" + nextId;
+        var url = window.location.origin  + "/OpenPi/funpizzafacts/iwantsomefact?id=" + nextId;
         $.ajax({
             type: "GET",
             url: url,
             success: function (response) {
-                var url = window.location.origin  + "/openpi/funpizzafacts#" + response.id;
+                var url = window.location.origin  + "/OpenPi/funpizzafacts#" + response.id;
                 history.pushState(response, null, url);
                 document.getElementById("fun-fact").innerHTML = response.fact;
             },
