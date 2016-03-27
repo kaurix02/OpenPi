@@ -99,7 +99,7 @@
                     success: function(response){
                         console.log(response);
                         // Authentication successful, redirect to root
-                        window.location.href = "/openpi";
+                        window.location.href = "../OpenPi";
                     },
                     error: function(response) {
                         console.log(response);

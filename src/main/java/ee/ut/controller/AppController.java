@@ -18,6 +18,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.session.HttpSessionCreatedEvent;
 import org.springframework.stereotype.Controller;
@@ -53,6 +54,9 @@ public class AppController {
 
     @Autowired
     private HttpSession httpSession;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     private boolean isEstonian = false;
 
@@ -157,9 +161,9 @@ public class AppController {
     public @ResponseBody User facebookLogin(@RequestBody User user, BindingResult result, ModelMap model) {
         if (!userService.isUserEmailUnique(user.getEmail())) {
             model.addAttribute("user", user);
-
+            UserDetails userD = userDetailsService.loadUserByUsername(user.getEmail());
             Authentication auth =
-                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+                    new UsernamePasswordAuthenticationToken(userD, null, userD.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(auth);
 
             return user;
@@ -168,9 +172,9 @@ public class AppController {
         user.setPassword(UUID.randomUUID().toString().replace("-", ""));
         userService.saveUser(user);
         model.addAttribute("user", user);
-
+        UserDetails userD = userDetailsService.loadUserByUsername(user.getEmail());
         Authentication auth =
-                new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+                new UsernamePasswordAuthenticationToken(userD, null, userD.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         return user;
