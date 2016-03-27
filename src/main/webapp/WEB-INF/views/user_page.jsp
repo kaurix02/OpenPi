@@ -12,6 +12,6 @@
     <title>Hello, ${user}</title>
 </head>
 <body>
-    <p>${test}</p>
+<p>${test}</p>
 </body>
 </html>
