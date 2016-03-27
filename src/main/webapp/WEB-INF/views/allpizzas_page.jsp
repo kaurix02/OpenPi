@@ -33,22 +33,32 @@
         <h3 id="logo">OpenPi</h3>
         <nav>
             <ul class="nav nav-justified">
-                <li><a href="<c:url value="/" />">Home</a></li>
-                <li class="active"><a href="<c:url value="/pizzas" />">Pizzas</a></li>
+                <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
+                <li class="active">
+                    <a href="<c:url value="/pizzas" />">
+                    <c:if test="${isEstonian}">Pitsad</c:if>
+                    <c:if test="${!isEstonian}">Pizzas</c:if>
+                </a></li>
                 <c:if test="${isShopping}">
                     <li id="registeredUser"><a href="<c:url value="/user" />">${userFirstName}</a></li>
                 </c:if>
                 <c:if test="${!isShopping}">
-                    <li id="unRegisteredUser"><a href="<c:url value="/login" />">Log In</a></li>
+                    <li id="unRegisteredUser"><a href="<c:url value="/login" />">
+                        <c:if test="${isEstonian}">Sisse logimine</c:if>
+                            <c:if test="${!isEstonian}">Log In</c:if>
+                    </a></li>
                 </c:if>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#"><c:if test="${isEstonian}">Meiest</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+                <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
             </ul>
         </nav>
         <div class="container pizzaOffers">
             <div class="row">
                 <div class="col-sm-9">
-                    <h1 id="pizzaPage">Pizzas</h1>
+                    <h1 id="pizzaPage">
+                        <c:if test="${isEstonian}">Pitsad</c:if>
+                        <c:if test="${!isEstonian}">Pizzas</c:if>
+                    </h1>
                     <!--p class="lead">${test}</p>-->
                     <!--<c:if test="${isShopping}">
                         <p>${listOfProducts}</p>
@@ -58,14 +68,26 @@
                     </c:if>
                     <table class="lead">
                         <tr>
-                            <td>Naming</td><td>Description</td>
+                            <td>
+                                <c:if test="${isEstonian}">Nimetus</c:if>
+                                <c:if test="${!isEstonian}">Naming</c:if>
+                            </td>
+                            <td>
+                                <c:if test="${isEstonian}">Kirjeldus</c:if>
+                                <c:if test="${!isEstonian}">Description</c:if>
+                            </td>
                         </tr>
                         <c:forEach items="${pizzas}" var="pizza">
                             <tr>
                                 <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                                 <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
                                 <c:if test="${isShopping}">
-                                    <td><button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >Buy</button></td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >
+                                            <c:if test="${isEstonian}">Osta</c:if>
+                                            <c:if test="${!isEstonian}">Buy</c:if>
+                                        </button>
+                                    </td>
                                 </c:if>
                             </tr>
                         </c:forEach>
@@ -76,17 +98,28 @@
                         <c:if test="${isShopping}">
                             <c:forEach items="${shoppingCart}" var="cart">
                                 <li id="pizza${cart}">${cart}</li>
-                                <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">Remove</button></li>
+                                <li>
+                                    <button class="btn btn-sm btn-danger removePizza" id="${cart}">
+                                        <c:if test="${isEstonian}">Eemalda</c:if>
+                                        <c:if test="${!isEstonian}">Remove</c:if>
+                                    </button>
+                                </li>
                             </c:forEach>
                             <c:if test="${shoppingCart.size() > 0}">
                                 <li><a href="<c:url value="/cart/"/>">
-                                    <button class="btn btn-lg btn-success">Checkout</button>
+                                    <button class="btn btn-lg btn-success">
+                                        <c:if test="${isEstonian}">Jätka</c:if>
+                                        <c:if test="${!isEstonian}">Checkout</c:if>
+                                    </button>
                                 </a></li>
                             </c:if>
                         </c:if>
                         <c:if test="${!isShopping}">
                             <a href="<c:url value="/cart/"/>">
-                                <button class="btn btn-lg btn-success">Start Shopping</button>
+                                <button class="btn btn-lg btn-success">
+                                    <c:if test="${isEstonian}">Alusta ostmist</c:if>
+                                    <c:if test="${!isEstonian}">Start Shopping</c:if>
+                                </button>
                             </a>
                         </c:if>
                     </ul>

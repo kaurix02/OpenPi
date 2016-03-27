@@ -71,6 +71,7 @@ public class AppController {
      */
     @RequestMapping(value = {"/"}, method = RequestMethod.GET)
     public String mainPage(ModelMap model) {
+        //SecurityContextHolder.getContext().getAuthentication().
         if (!(new OverallHelp().getPrincipal() == null)){
             model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             model.addAttribute("isAuthorized", true);
@@ -84,6 +85,7 @@ public class AppController {
         if (string.equals("estonian")) {
             isEstonian = true;
         } else isEstonian = false;
+        httpSession.setAttribute("language", isEstonian);
         //sc.setShoppingCart(listOfProducts);*/
         //log.info(listOfProducts.toString());
         //System.err.println("***********************************" +listOfProducts + "**************************************************");

@@ -45,6 +45,7 @@ public class CartController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getCartShopping(ModelMap model) {
         model.addAttribute("isShopping", true);
+        model.addAttribute("isEstonian", httpSession.getAttribute("language"));
         /*model.addAttribute("test", SecurityContextHolder.getContext().getAuthentication().getDetails() + "*"+new OverallHelp().getPrincipal() + "*"+httpSession.getId());*/
         List<Pizza> pizzas = pizzaService.findAllPizzas();
         model.addAttribute("pizzas", pizzas);
