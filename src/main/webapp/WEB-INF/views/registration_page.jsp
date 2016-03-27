@@ -43,19 +43,19 @@
                 <c:if test="${param.success != null}">
                     <div class="alert alert-success regalert1" role="alert">Edukas Registreerumine!</div>
                 </c:if>
-                <label for="inputFirstName" class="form-control">First Name</label>
+                <!--<label for="inputFirstName" class="form-control">First Name</label>-->
                 <form:input type="text" class="form-control" id="inputFirstName" placeholder="Eesnimi" path="firstName"/>
                 <div class="alert alert-danger regalert" id="invalidFirstName" role="alert">Vale Eesnimi!</div>
-                <label for="inputLastName" class="form-control">Last Name</label>
+                <!--<label for="inputLastName" class="form-control">Last Name</label>-->
                 <form:input type="text" class="form-control" id="inputLastName" placeholder="Perenimi" path="lastName"/>
                 <div class="alert alert-danger regalert" id="invalidLastName" role="alert">Vale Perenimi!</div>
-                <label for="inputEmail" class="form-control">E-mail</label>
+                <!--<label for="inputEmail" class="form-control">E-mail</label>-->
                 <form:input type="text" class="form-control" id="inputEmail" placeholder="Email" path="email"/>
                 <div class="alert alert-danger regalert" id="invalidEmail" role="alert">Vale Email!</div>
-                <label for="inputPassword" class="form-control">Password</label>
+                <!--<label for="inputPassword" class="form-control">Password</label>-->
                 <form:input type="password" class="form-control" id="inputPassword" placeholder="Parool" path="password"/>
                 <div class="alert alert-danger regalert" id="invalidPassword" role="alert">Vale Parool!</div>
-                <label for="inputConfirmPassword" class="form-control">Confirm Password</label>
+                <!--<label for="inputConfirmPassword" class="form-control">Confirm Password</label>-->
                 <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Nõustuv Parool"/>
                 <div class="alert alert-danger regalert" id="invalidConfirmPassword" role="alert">Paroolid peavad olema samad!</div>
                 <button type="button" class="btn btn-lg btn-primary btn-block" id="registrationButton">Registreeri</button>
@@ -68,19 +68,19 @@
                 <c:if test="${param.success != null}">
                     <div class="alert alert-success regalert1" role="alert">Success!</div>
                 </c:if>
-                <label for="inputFirstName" class="form-control">First Name</label>
+                <!--<label for="inputFirstName" class="form-control">First Name</label>-->
                 <form:input type="text" class="form-control" id="inputFirstName" placeholder="First Name" path="firstName"/>
                 <div class="alert alert-danger regalert" id="invalidFirstName" role="alert">Invalid First Name!</div>
-                <label for="inputLastName" class="form-control">Last Name</label>
+                <!--<label for="inputLastName" class="form-control">Last Name</label>-->
                 <form:input type="text" class="form-control" id="inputLastName" placeholder="Last Name" path="lastName"/>
                 <div class="alert alert-danger regalert" id="invalidLastName" role="alert">Invalid Last Name!</div>
-                <label for="inputEmail" class="form-control">E-mail</label>
+                <!--<label for="inputEmail" class="form-control">E-mail</label>-->
                 <form:input type="text" class="form-control" id="inputEmail" placeholder="Email address" path="email"/>
                 <div class="alert alert-danger regalert" id="invalidEmail" role="alert">Invalid Email!</div>
-                <label for="inputPassword" class="form-control">Password</label>
+                <!--<label for="inputPassword" class="form-control">Password</label>-->
                 <form:input type="password" class="form-control" id="inputPassword" placeholder="Password" path="password"/>
                 <div class="alert alert-danger regalert" id="invalidPassword" role="alert">Invalid Password!</div>
-                <label for="inputConfirmPassword" class="form-control">Confirm Password</label>
+                <!--<label for="inputConfirmPassword" class="form-control">Confirm Password</label>-->
                 <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm Password"/>
                 <div class="alert alert-danger regalert" id="invalidConfirmPassword" role="alert">Passwords must match!</div>
                 <button type="button" class="btn btn-lg btn-primary btn-block" id="registrationButton">Register</button>

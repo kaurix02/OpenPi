@@ -48,7 +48,7 @@
 
     </div>
     <div class="language">
-        <form action="" method="post">
+        <form method="post">
             <c:if test="${!isEstonian}"><button name="string" value="estonian" class="btn btn-lg btn-warning" type="submit">EE</button></c:if>
             <c:if test="${isEstonian}"><button name="string" value="english" class="btn btn-lg btn-warning" type="submit">EN</button></c:if>
         </form>
