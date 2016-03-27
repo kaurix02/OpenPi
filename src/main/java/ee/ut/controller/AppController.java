@@ -2,11 +2,10 @@ package ee.ut.controller;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import ee.ut.helpmodules.OverallHelp;
+import ee.ut.helpmodules.PizzaFact;
 import ee.ut.helpmodules.RegistrationHelp;
 import ee.ut.model.*;
 import ee.ut.service.UserRoleService;
@@ -111,6 +110,30 @@ public class AppController {
         model.addAttribute("user", user);
         return "registration_page";
     }
+
+    @RequestMapping(value = {"/funpizzafacts"}, method = RequestMethod.GET)
+    public String funPizzaFactsPage(ModelMap model){
+        return "fun_pizza_facts";
+    }
+
+    public static ArrayList<PizzaFact> pizzaFacts = new ArrayList<>(Arrays.asList(
+            new PizzaFact("1", "Lol fact"),
+            new PizzaFact("2", "Lol fa2ct"),
+            new PizzaFact("3", "Lol f3ct"),
+            new PizzaFact("4", "Lol fa4ct"),
+            new PizzaFact("5", "Lol fa5ct")
+    ));
+    @RequestMapping(value = {"/funpizzafacts/iwantsomefact"}, method = RequestMethod.GET)
+    public @ResponseBody PizzaFact funPizzaFactsPage(ModelMap model, HttpServletRequest request){
+        String id = request.getParameter("id");
+        for (PizzaFact pizzaFact : pizzaFacts) {
+            if (pizzaFact.id.equals(id)){
+                return pizzaFact;
+            }
+        }
+        return pizzaFacts.get(0);
+    }
+
 
     /*
      * Confirm Registration if (user is valid) suceess; else tell about it and tell to try again;

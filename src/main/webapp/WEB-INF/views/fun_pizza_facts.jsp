@@ -50,29 +50,58 @@
             </c:if>
             <li><a href="#"><c:if test="${isEstonian}">Meist</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
             <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
-            <li><a href="<c:url value="/funpizzafacts" />"><c:if test="${isEstonian}">Pitsa Faktid</c:if> <c:if test="${!isEstonian}">Fun Pizza Facts</c:if></a></li>
+            <li><a href="#"><c:if test="${isEstonian}">Pitsa Faktid</c:if> <c:if test="${!isEstonian}">Fun Pizza Facts</c:if></a></li>
         </ul>
     </nav>
     <div class="jumbotron">
-        <h1 class="offer">
-            <c:if test="${isEstonian}">Pakkumised</c:if>
-            <c:if test="${!isEstonian}">Offers</c:if>
-        </h1>
-        <p class="lead"><c:if test="${isEstonian}">Proovi Eesti parimat pitsat meiega!</c:if> <c:if test="${!isEstonian}">Try the TOP Estonian pizza at our place!</c:if></p>
-        <c:if test="${!isAuthorized}">
-            <p><a class="btn btn-lg btn-success" id="linkRegisterButton" href="<c:url value="/registration"/>" role="button">
-                <c:if test="${isEstonian}">Registreerumine</c:if>
-                <c:if test="${!isEstonian}">Registration</c:if>
-            </a></p>
-        </c:if>
+        <h1 class="offer" id="fun-fact">
 
-    </div>
-    <div class="language">
-        <form method="post">
-            <c:if test="${!isEstonian}"><button name="string" value="estonian" class="btn btn-lg btn-warning" type="submit">EE</button></c:if>
-            <c:if test="${isEstonian}"><button name="string" value="english" class="btn btn-lg btn-warning" type="submit">EN</button></c:if>
-        </form>
+        </h1>
+        <button onclick="getFact(true)">Get new fact!</button>
     </div>
 </div>
+<script>
+    var getFact = function(getNextId) {
+        var nextId = null
+        if (getNextId) {
+            var nextId = parseInt(window.location.hash.replace("#", "")) + 1;
+        }else
+        {
+            var nextId = window.location.hash.replace("#", "")
+        }
+        var url = window.location.origin  + "/openpi/funpizzafacts/iwantsomefact?id=" + nextId;
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function (response) {
+                var url = window.location.origin  + "/openpi/funpizzafacts#" + response.id;
+                history.pushState(response, null, url);
+                document.getElementById("fun-fact").innerHTML = response.fact;
+            },
+            error: function (response) {
+                console.log(response);
+            },
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8'
+        });
+    };
+    var currentState = history.state;
+    if (!history.state){
+        window.location = '#';
+    }
+    getFact(false);
+    window.addEventListener('popstate', function(event)
+    {
+        if(history.state){
+            document.getElementById("fun-fact").innerHTML = history.state.fact;
+        }
+    });
+    window.addEventListener('pushstate', function(event)
+    {
+        if(history.state){
+            document.getElementById("fun-fact").innerHTML = history.state.fact;
+        }
+    });
+</script>
 </body>
 </html>
