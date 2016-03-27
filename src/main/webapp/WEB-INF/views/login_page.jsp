@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    0charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -164,8 +163,9 @@
 
             </c:if>
 
-            </form>
+        </form>
 
+        <div class="container">
             <h1 id="fb-welcome"></h1>
             <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
             </fb:login-button>
