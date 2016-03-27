@@ -8,7 +8,10 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -110,5 +113,13 @@ public class User {
     @Override
     public String toString() {
         return "User [id=" + id + ", first_name=" + firstName + ", last_name=" + lastName + ", email=" + email + "]";
+    }
+
+    public Collection<GrantedAuthority> getAuthorities() {
+        //make everyone ROLE_USER
+        Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+        GrantedAuthority grantedAuthority = (GrantedAuthority) () -> "ROLE_USER";
+        grantedAuthorities.add(grantedAuthority);
+        return grantedAuthorities;
     }
 }

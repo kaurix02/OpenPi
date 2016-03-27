@@ -23,7 +23,27 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="resources/js/bootstrap.min.js"></script>
     </c:if>
-    <!--[if lt IE 9]>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '1761793507390965',
+                xfbml      : true,
+                version    : 'v2.5'
+            });
+
+            // ADD ADDITIONAL FACEBOOK CODE HERE
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <!--[if lt IE 9] -->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->

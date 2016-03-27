@@ -1,15 +1,22 @@
 package ee.ut.controller;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
 
 import ee.ut.helpmodules.OverallHelp;
 import ee.ut.helpmodules.RegistrationHelp;
 import ee.ut.model.*;
 import ee.ut.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -121,6 +128,29 @@ public class AppController {
         userService.saveUser(user);
         model.addAttribute("user", new User());
         return "redirect:/registration?success";
+    }
+
+    @RequestMapping(value = "/facebooklogin", method = RequestMethod.POST)
+    public @ResponseBody User facebookLogin(@RequestBody User user, BindingResult result, ModelMap model) {
+        if (!userService.isUserEmailUnique(user.getEmail())) {
+            model.addAttribute("user", user);
+
+            Authentication auth =
+                    new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+            SecurityContextHolder.getContext().setAuthentication(auth);
+
+            return user;
+        }
+        user.getUserRoles().add(userRoleService.findRoleByType(UserRoleType.USER.getUserRoleType()));
+        user.setPassword(UUID.randomUUID().toString().replace("-", ""));
+        userService.saveUser(user);
+        model.addAttribute("user", new User());
+
+        Authentication auth =
+                new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+
+        return user;
     }
 
     /*

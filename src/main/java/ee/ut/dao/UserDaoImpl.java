@@ -4,8 +4,11 @@ import ee.ut.model.User;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Repository("userDao")
