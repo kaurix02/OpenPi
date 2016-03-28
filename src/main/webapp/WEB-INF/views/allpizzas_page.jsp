@@ -18,10 +18,10 @@
         <script src="<c:url value="/"/>resources/js/bootstrap.min.js"></script>
     </c:if>
     <c:if test="${!isShopping}">
-        <link href="resources/css/bootstrap.min.css"  rel="stylesheet"/>
-        <link href="resources/openpi.css" rel="stylesheet"/>
+        <link href="<c:url value="/" />resources/css/bootstrap.min.css"  rel="stylesheet"/>
+        <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="resources/js/bootstrap.min.js"></script>
+        <script src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
     </c:if>
 
     <script src="<c:url value="/"/>resources/js/fb_pizza.js"></script>

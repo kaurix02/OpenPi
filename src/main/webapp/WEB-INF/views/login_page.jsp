@@ -9,13 +9,13 @@
     <meta name="author" content="">
     <!--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">-->
     <title>Login page</title>
-    <link href="resources/css/bootstrap.min.css"  rel="stylesheet"/>
-    <link href="resources/openpi.css" rel="stylesheet"/>
+    <link href="<c:url value="/" />resources/css/bootstrap.min.css"  rel="stylesheet"/>
+    <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/registrationpage/md5.js"></script>
+    <script src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
+    <script src="<c:url value="/" />resources/registrationpage/md5.js"></script>
 
-    <script src="resources/js/fb_login.js"></script>
+    <script src="<c:url value="/" />resources/js/fb_login.js"></script>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -87,6 +87,6 @@
 <!-- /container -->
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
-<script src="resources/loginpage/login.js"></script>
+<script src="<c:url value="/" />resources/loginpage/login.js"></script>
 </body>
 </html>

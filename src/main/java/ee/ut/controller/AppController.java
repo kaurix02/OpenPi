@@ -60,13 +60,20 @@ public class AppController {
 
     private boolean isEstonian = false;
 
+    public static ArrayList<PizzaFact> pizzaFacts = new ArrayList<>(Arrays.asList(
+            new PizzaFact("1", "Lol fact"),
+            new PizzaFact("2", "Lol fa2ct"),
+            new PizzaFact("3", "Lol f3ct"),
+            new PizzaFact("4", "Lol fa4ct"),
+            new PizzaFact("5", "Lol fa5ct")
+    ));
+
     /*
      * This method will list all existing pizzas.
      */
     @RequestMapping(value = {"/pizzas"}, method = RequestMethod.GET)
     public String listPizzas(ModelMap model) {
         if (new OverallHelp().getPrincipal() != null) {
-            //model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
             return "redirect:/cart/";
         }
         model.addAttribute("isEstonian", isEstonian);
@@ -117,16 +124,15 @@ public class AppController {
 
     @RequestMapping(value = {"/funpizzafacts"}, method = RequestMethod.GET)
     public String funPizzaFactsPage(ModelMap model){
+        if (!(new OverallHelp().getPrincipal() == null)){
+            model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
+            model.addAttribute("isAuthorized", true);
+        } else model.addAttribute("isAuthorized", false);
+        model.addAttribute("isEstonian", isEstonian);
         return "fun_pizza_facts";
     }
 
-    public static ArrayList<PizzaFact> pizzaFacts = new ArrayList<>(Arrays.asList(
-            new PizzaFact("1", "Lol fact"),
-            new PizzaFact("2", "Lol fa2ct"),
-            new PizzaFact("3", "Lol f3ct"),
-            new PizzaFact("4", "Lol fa4ct"),
-            new PizzaFact("5", "Lol fa5ct")
-    ));
+
     @RequestMapping(value = {"/funpizzafacts/iwantsomefact"}, method = RequestMethod.GET)
     public @ResponseBody PizzaFact funPizzaFactsPage(ModelMap model, HttpServletRequest request){
         String id = request.getParameter("id");
@@ -160,7 +166,6 @@ public class AppController {
     @RequestMapping(value = "/facebooklogin", method = RequestMethod.POST)
     public @ResponseBody User facebookLogin(@RequestBody User user, BindingResult result, ModelMap model) {
         if (!userService.isUserEmailUnique(user.getEmail())) {
-            model.addAttribute("user", user);
             UserDetails userD = userDetailsService.loadUserByUsername(user.getEmail());
             Authentication auth =
                     new UsernamePasswordAuthenticationToken(userD, null, userD.getAuthorities());
@@ -171,12 +176,10 @@ public class AppController {
         user.getUserRoles().add(userRoleService.findRoleByType(UserRoleType.USER.getUserRoleType()));
         user.setPassword(UUID.randomUUID().toString().replace("-", ""));
         userService.saveUser(user);
-        model.addAttribute("user", user);
         UserDetails userD = userDetailsService.loadUserByUsername(user.getEmail());
         Authentication auth =
                 new UsernamePasswordAuthenticationToken(userD, null, userD.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(auth);
-
         return user;
     }
 

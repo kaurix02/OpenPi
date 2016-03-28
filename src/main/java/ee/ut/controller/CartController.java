@@ -77,5 +77,15 @@ public class CartController {
         return shoppingCart;
     }
 
+    @RequestMapping(value = "payment", method = RequestMethod.GET)
+    public @ResponseBody ShoppingCart payForProducts(@RequestBody Pizza pizza){// BindingResult result, ModelMap model){//) {
+        shoppingCart.removeFromShoppingCart(pizza);
+        //sc.setShoppingCart(listOfProducts);*/
+        //log.info(listOfProducts.toString());
+        //System.err.println("***********************************" +listOfProducts + "**************************************************");
+        //model.addAttribute("listOfProducts", listOfProducts.toString());
+        return shoppingCart;
+    }
+
 
 }
