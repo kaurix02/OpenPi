@@ -15,14 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/fb_pizza.js"></script>
+    <script src="resources/js/fb_pizza_2.js"></script>
 </head>
 <body>
 <div class="container">
     <h3 id="logo">OpenPi</h3>
     <nav>
         <ul class="nav nav-justified">
-            <li class="active"><a href="#"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
+            <li class="active"><a href="<c:url value="/"/>"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
             <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
             <c:if test="${isAuthorized}">
                 <li id="registeredUser"><a href="<c:url value="/user"/>">${userFirstName}</a></li>
@@ -42,48 +42,5 @@
         <button onclick="getFact(true)">Get new fact!</button>
     </div>
 </div>
-<script>
-    var getFact = function(getNextId) {
-        var nextId = null
-        if (getNextId) {
-            var nextId = parseInt(window.location.hash.replace("#", "")) + 1;
-        }else
-        {
-            var nextId = window.location.hash.replace("#", "")
-        }
-        var url = window.location.origin  + "/OpenPi/funpizzafacts/iwantsomefact?id=" + nextId;
-        $.ajax({
-            type: "GET",
-            url: url,
-            success: function (response) {
-                var url = window.location.origin  + "/OpenPi/funpizzafacts#" + response.id;
-                history.pushState(response, null, url);
-                document.getElementById("fun-fact").innerHTML = response.fact;
-            },
-            error: function (response) {
-                console.log(response);
-            },
-            dataType: "json",
-            contentType: 'application/json; charset=utf-8'
-        });
-    };
-    var currentState = history.state;
-    if (!history.state){
-        window.location = '#';
-    }
-    getFact(false);
-    window.addEventListener('popstate', function(event)
-    {
-        if(history.state){
-            document.getElementById("fun-fact").innerHTML = history.state.fact;
-        }
-    });
-    window.addEventListener('pushstate', function(event)
-    {
-        if(history.state){
-            document.getElementById("fun-fact").innerHTML = history.state.fact;
-        }
-    });
-</script>
 </body>
 </html>

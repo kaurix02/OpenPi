@@ -24,7 +24,7 @@
         <script src="resources/js/bootstrap.min.js"></script>
     </c:if>
 
-    <script src="resources/js/fb_pizza.js"></script>
+    <script src="<c:url value="/"/>resources/js/fb_pizza.js"></script>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -62,14 +62,18 @@
                 </c:if>
                 <table class="lead">
                     <tr>
-                        <td>Naming</td><td>Description</td>
+                        <td>
+                            <c:if test="${isEstonian}">Nimetus</c:if> <c:if test="${!isEstonian}">Naming</c:if></td>
+                        <td><c:if test="${isEstonian}">Kirjeldus</c:if> <c:if test="${!isEstonian}">Description</c:if></td>
                     </tr>
                     <c:forEach items="${pizzas}" var="pizza">
                         <tr>
                             <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                             <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
                             <c:if test="${isShopping}">
-                                <td><button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >Buy</button></td>
+                                <td><button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >
+                                    <c:if test="${isEstonian}">Osta</c:if> <c:if test="${!isEstonian}">Buy</c:if>
+                                </button></td>
                             </c:if>
                         </tr>
                     </c:forEach>
@@ -80,11 +84,15 @@
                     <c:if test="${isShopping}">
                         <c:forEach items="${shoppingCart}" var="cart">
                             <li id="pizza${cart}">${cart}</li>
-                            <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">Remove</button></li>
+                            <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">
+                                <c:if test="${isEstonian}">Eemaldat</c:if> <c:if test="${!isEstonian}">Remove</c:if>
+                            </button></li>
                         </c:forEach>
                         <c:if test="${shoppingCart.size() > 0}">
                             <li><a href="<c:url value="/cart/"/>">
-                                <button class="btn btn-lg btn-success">Checkout</button>
+                                <button class="btn btn-lg btn-success">
+                                    <c:if test="${isEstonian}">Jätka</c:if> <c:if test="${!isEstonian}">Checkout</c:if>
+                                </button>
                             </a></li>
                         </c:if>
                     </c:if>
