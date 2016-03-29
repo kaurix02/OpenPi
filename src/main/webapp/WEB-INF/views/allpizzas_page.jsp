@@ -68,10 +68,11 @@
                     </tr>
                     <c:forEach items="${pizzas}" var="pizza">
                         <tr>
-                            <td id="pizzaNaming${pizza.id}">${pizza.naming}</td>
-                            <td id="pizzaDescription${pizza.id}">${pizza.description}</td>
+                            <td class="tabeliCell" id="pizzaPicture${pizza.id}"><img src="/openpi/resources/images/${pizza.id}.jpg"></td>
+                            <td class="tabeliCell" id="pizzaNaming${pizza.id}">${pizza.naming}</td>
+                            <td class="tabeliCell" id="pizzaDescription${pizza.id}">${pizza.description}</td>
                             <c:if test="${isShopping}">
-                                <td><button type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >
+                                <td><button class="tabeliCell" type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >
                                     <c:if test="${isEstonian}">Osta</c:if> <c:if test="${!isEstonian}">Buy</c:if>
                                 </button></td>
                             </c:if>

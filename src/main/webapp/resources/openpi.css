@@ -168,3 +168,7 @@ ul#sidebar > li {
     color: #eee;
     font-size: 21px;
 }
+
+td.tabeliCell {
+    padding: 5px;
+}
