@@ -103,10 +103,6 @@ public class AppController {
             isEstonian = true;
         } else isEstonian = false;
         httpSession.setAttribute("language", isEstonian);
-        //sc.setShoppingCart(listOfProducts);*/
-        //log.info(listOfProducts.toString());
-        //System.err.println("***********************************" +listOfProducts + "**************************************************");
-        //model.addAttribute("listOfProducts", listOfProducts.toString());
         return "redirect:/";
     }
 

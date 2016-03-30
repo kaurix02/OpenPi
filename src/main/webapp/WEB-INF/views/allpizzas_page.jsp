@@ -68,7 +68,7 @@
                     </tr>
                     <c:forEach items="${pizzas}" var="pizza">
                         <tr>
-                            <td class="tabeliCell" id="pizzaPicture${pizza.id}"><img src="/openpi/resources/images/${pizza.id}.jpg"></td>
+                            <td class="tabeliCell" id="pizzaPicture${pizza.id}"><img src="<c:url value="/" />resources/images/${pizza.id}.jpg"></td>
                             <td class="tabeliCell" id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                             <td class="tabeliCell" id="pizzaDescription${pizza.id}">${pizza.description}</td>
                             <c:if test="${isShopping}">
