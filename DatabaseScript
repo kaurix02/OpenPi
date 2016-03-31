@@ -45,18 +45,9 @@ VALUES ('ADMIN');
 
 aiven:
 jdbc.driverClassName = org.postgresql.Driver
-jdbc.url = jdbc:postgresql://openpi.prj-mmxcm5.aivencloud.com:10995/openpidatabase?sslmode=require
-jdbc.username = u7b4i4t8
-jdbc.password = djt0ouiv79wcwuy4
-hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
-hibernate.show_sql = true
-hibernate.format_sql = true
-
-localhost:
-jdbc.driverClassName = org.postgresql.Driver
-jdbc.url = jdbc:postgresql://localhost:5432/OpenPiDatabase
-jdbc.username = postgres
-jdbc.password = DkjPGH875pz!
+jdbc.url = jdbc:postgresql://openpiservice.prj-wml3lj.aivencloud.com:12550/d1p5e0e5?sslmode=require
+jdbc.username = u0b7t7t6
+jdbc.password = eb1rqajli0ilsh3l
 hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.show_sql = true
 hibernate.format_sql = true
