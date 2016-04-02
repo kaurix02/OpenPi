@@ -87,5 +87,10 @@ public class CartController {
         return shoppingCart;
     }
 
+    @RequestMapping(value = "checkout", method = RequestMethod.GET)
+    public String checkout(ModelMap model){
+        return "";
+    }
+
 
 }
