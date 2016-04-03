@@ -72,7 +72,7 @@
                             <td class="tabeliCell" id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                             <td class="tabeliCell" id="pizzaDescription${pizza.id}">${pizza.description}</td>
                             <c:if test="${isShopping}">
-                                <td><button class="tabeliCell" type="button" class="btn btn-sm btn-warning addPizza" id="${pizza.id}" >
+                                <td><button type="button" class="btn btn-sm btn-warning addPizza tabeliCell" id="${pizza.id}" >
                                     <c:if test="${isEstonian}">Osta</c:if> <c:if test="${!isEstonian}">Buy</c:if>
                                 </button></td>
                             </c:if>
@@ -84,7 +84,7 @@
                 <ul id="sidebar" class="nav nav-stacked affix">
                     <c:if test="${isShopping}">
                         <c:forEach items="${shoppingCart}" var="cart">
-                            <li id="pizza${cart}">${cart}</li>
+                            <li id="pizza${cart}">${cart.key} : ${cart.value}tk</li>
                             <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">
                                 <c:if test="${isEstonian}">Eemaldat</c:if> <c:if test="${!isEstonian}">Remove</c:if>
                             </button></li>

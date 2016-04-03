@@ -39,7 +39,7 @@
         <h1 class="offer" id="fun-fact">
 
         </h1>
-        <button onclick="getFact(true)">Get new fact!</button>
+        <button onclick="getFact(true)"><c:if test="${isEstonian}">Uus fakt</c:if> <c:if test="${!isEstonian}">Get new fact!</c:if></button>
     </div>
 </div>
 </body>

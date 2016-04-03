@@ -62,7 +62,7 @@ for (i = 0; i < buttons2.length; i++) {
             //dataType: 'json',
             data: JSON.stringify({
                 id: 0,
-                naming: document.getElementById("pizza" + event.target.id).innerHTML.split("=")[0],
+                naming: document.getElementById("pizza" + event.target.id).innerHTML.split(" :")[0],
                 description: "any"}),
             contentType: 'application/json',
             success: function(data) {
