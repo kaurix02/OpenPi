@@ -29,6 +29,8 @@ public class PizzaServiceImpl implements PizzaService {
         if(entity!=null){
             entity.setNaming(pizza.getNaming());
             entity.setDescription(pizza.getDescription());
+            entity.setPrice(pizza.getPrice());
+            pizzaDao.updatePizza(entity);
         }
     }
 

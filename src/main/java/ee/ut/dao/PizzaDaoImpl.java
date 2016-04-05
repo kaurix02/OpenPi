@@ -35,4 +35,8 @@ public class PizzaDaoImpl extends AbstractDao<Integer, Pizza> implements PizzaDa
         criteria.add(Restrictions.eq("naming", naming));
         return (Pizza) criteria.uniqueResult();
     }
+
+    public void updatePizza(Pizza pizza) {
+        getSession().update(pizza);
+    }
 }

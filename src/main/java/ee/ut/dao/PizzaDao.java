@@ -14,4 +14,6 @@ public interface PizzaDao {
     List<Pizza> findAllPizzas();
 
     Pizza findPizzaByNaming(String naming);
+
+    void updatePizza(Pizza pizza);
 }

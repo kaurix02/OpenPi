@@ -19,12 +19,16 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="http://localhost:8080/banklink/ipizza">
+    <c:if test="${param.success != null}">
+        <div class="alert alert-success" role="alert">Success!</div>
+    </c:if>
+    <c:if test="${param.cancel != null}">
+        <div class="alert alert-danger" role="alert">Cancelled!</div>
+    </c:if>
+    <form method="post" action="http://localhost:8081/banklink/ipizza">
         <c:forEach items="${checkoutInfo}" var="checkout">
             <input type="hidden" name="${checkout.key}" value="${checkout.value}" />
         </c:forEach>
-
-
         <table class="lead">
             <c:forEach items="${checkoutInfo}" var="checkout">
                 <tr>
@@ -33,7 +37,20 @@
                 </tr>
             </c:forEach>
         </table>
-    </form>
+
+        <c:choose>
+            <c:when test="${param.success == null && param.cancel == null || param.cancel != null}">
+                <button type="submit" class="btn btn-lg btn-primary btn-block">Pay</button>
+            </form>
+            </c:when>
+            <c:otherwise>
+                </form>
+                <form action="<c:url value="/" />">
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Return">
+                </form>
+            </c:otherwise>
+        </c:choose>
+
 </div>
 </body>
 </html>

@@ -37,4 +37,8 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao{
         criteria.add(Restrictions.eq("email", email));
         return (User) criteria.uniqueResult();
     }
+
+    public void updateUser(User user) {
+        getSession().update(user);
+    }
 }

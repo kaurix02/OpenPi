@@ -52,6 +52,9 @@ public class User {
             inverseJoinColumns = { @JoinColumn(name = "user_role_id") })
     private Set<UserRole> userRoles = new HashSet<UserRole>();
 
+    @OneToMany(mappedBy = "user")
+    private Set<Order> userOrders = new HashSet<>();
+
     public int getId() {
         return id;
     }
@@ -93,6 +96,14 @@ public class User {
     public Set<UserRole> getUserRoles() {return userRoles;}
 
     public void setUserRoles(Set<UserRole> userRoles) {this.userRoles = userRoles;}
+
+    public Set<Order> getUserOrders() {
+        return userOrders;
+    }
+
+    public void setUserOrders(Set<Order> userOrders) {
+        this.userOrders = userOrders;
+    }
 
     @Override
     public boolean equals(Object obj) {

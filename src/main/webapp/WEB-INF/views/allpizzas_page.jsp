@@ -62,8 +62,8 @@
                 </c:if>
                 <table class="lead">
                     <tr>
-                        <td>
-                            <c:if test="${isEstonian}">Nimetus</c:if> <c:if test="${!isEstonian}">Naming</c:if></td>
+                        <td><c:if test="${isEstonian}">Pilt</c:if> <c:if test="${!isEstonian}">Picture</c:if></td>
+                        <td><c:if test="${isEstonian}">Nimetus</c:if> <c:if test="${!isEstonian}">Naming</c:if></td>
                         <td><c:if test="${isEstonian}">Kirjeldus</c:if> <c:if test="${!isEstonian}">Description</c:if></td>
                     </tr>
                     <c:forEach items="${pizzas}" var="pizza">
@@ -90,7 +90,7 @@
                             </button></li>
                         </c:forEach>
                         <c:if test="${shoppingCart.size() > 0}">
-                            <li><a href="<c:url value="/cart/"/>">
+                            <li><a href="<c:url value="/cart/checkout"/>">
                                 <button class="btn btn-lg btn-success">
                                     <c:if test="${isEstonian}">Jätka</c:if> <c:if test="${!isEstonian}">Checkout</c:if>
                                 </button>

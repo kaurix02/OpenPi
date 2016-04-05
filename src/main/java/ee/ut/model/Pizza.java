@@ -1,11 +1,6 @@
 package ee.ut.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -15,6 +10,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="pizzas")
@@ -35,6 +32,13 @@ public class Pizza implements Serializable {
     @Size(min = 4, max = 300)
     @Column(name = "description", nullable = false)
     private String description;
+
+    @NotNull
+    @Column(name = "price", nullable = false)
+    private Double price;
+
+    @OneToMany(mappedBy = "pizza")
+    private Set<SoldPizza> soldPizzas = new HashSet<>();
 
     public int getId() {
         return id;
@@ -60,6 +64,22 @@ public class Pizza implements Serializable {
         this.description = description;
     }
 
+    public Set<SoldPizza> getSoldPizzas() {
+        return soldPizzas;
+    }
+
+    public void setSoldPizzas(Set<SoldPizza> soldPizzas) {
+        this.soldPizzas = soldPizzas;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -78,7 +98,7 @@ public class Pizza implements Serializable {
 
     @Override
     public String toString() {
-        return "Pizza [id=" + id + ", naming=" + naming + ", description=" + description + "]";
+        return "Pizza [id=" + id + ", naming=" + naming + ", description=" + description + ", price=" + price + "]";
     }
 
 }

@@ -1,8 +1,9 @@
 CREATE TABLE pizzas
 (
   id serial NOT NULL,
-  naming character varying(50) NOT NULL,
-  description character varying(300) NOT NULL,
+  naming CHARACTER VARYING(50) NOT NULL,
+  description CHARACTER VARYING(300) NOT NULL,
+  price DOUBLE PRECISION NOT NULL,
   CONSTRAINT pizzas_pkey PRIMARY KEY (id),
   CONSTRAINT pizzas_naming_key UNIQUE (naming)
 );
@@ -21,7 +22,7 @@ CREATE TABLE users
 
 /* user_roles table contains all possible roles */
 CREATE TABLE user_roles(
-   id serial NOT NULL,
+   id SERIAL NOT NULL,
    type VARCHAR(30) NOT NULL,
    CONSTRAINT user_roles_pkey PRIMARY KEY (id),
    CONSTRAINT user_roles_type_key UNIQUE (type)
@@ -36,6 +37,32 @@ CREATE TABLE users_user_roles (
     CONSTRAINT users_user_roles_user_roles_fk FOREIGN KEY (user_role_id) REFERENCES user_roles (id)
 );
 
+CREATE TABLE orders (
+  id      SERIAL  NOT NULL,
+  user_id INTEGER NOT NULL,
+  is_done CHAR(1) NOT NULL,
+  total DOUBLE PRECISION NOT NULL,
+  CONSTRAINT orders_pkey PRIMARY KEY (id),
+  CONSTRAINT orders_users_fk FOREIGN KEY (user_id) REFERENCES users (id)
+);
+
+CREATE TABLE sold_pizzas (
+  id       SERIAL  NOT NULL,
+  pizza_id INTEGER NOT NULL,
+  amount   INTEGER NOT NULL,
+  CONSTRAINT sold_pizzas_pkey PRIMARY KEY (id),
+  CONSTRAINT sold_pizzas_pizzas_fk FOREIGN KEY (pizza_id) REFERENCES pizzas (id)
+);
+
+CREATE TABLE orders_sold_pizzas (
+    order_id INTEGER NOT NULL,
+    sold_pizza_id INTEGER NOT NULL,
+    CONSTRAINT orders_sold_pizzas_pkey PRIMARY KEY (order_id, sold_pizza_id),
+    CONSTRAINT orders_sold_pizzas_orders_fk FOREIGN KEY (order_id) REFERENCES orders (id),
+    CONSTRAINT orders_sold_pizzas_pizzas_fk FOREIGN KEY (sold_pizza_id) REFERENCES sold_pizzas (id)
+);
+
+
 /* Populate user_roles Table */
 INSERT INTO user_roles(type)
 VALUES ('USER');
@@ -43,11 +70,23 @@ VALUES ('USER');
 INSERT INTO user_roles(type)
 VALUES ('ADMIN');
 
-aiven:
+INSERT INTO pizzas(naming, description, price) VALUES ('Pizza1', 'Test Pizza 1', '11.3');
+INSERT INTO pizzas(naming, description, price) VALUES ('Pizza2', 'Test Pizza 2', '15.0');
+
+aiven_old:
 jdbc.driverClassName = org.postgresql.Driver
 jdbc.url = jdbc:postgresql://openpiservice.prj-wml3lj.aivencloud.com:12550/d1p5e0e5?sslmode=require
 jdbc.username = u0b7t7t6
 jdbc.password = eb1rqajli0ilsh3l
+hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+hibernate.show_sql = true
+hibernate.format_sql = true
+
+aiven_new:
+jdbc.driverClassName = org.postgresql.Driver
+jdbc.url = jdbc:postgresql://openpi.prj-gd88qp.aivencloud.com:27605/d2d6z9h0?sslmode=require
+jdbc.username = u4t6u1n3
+jdbc.password = hladdcmii4lwsaev
 hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.show_sql = true
 hibernate.format_sql = true
