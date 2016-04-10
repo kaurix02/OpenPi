@@ -63,7 +63,7 @@ public class ShoppingCart implements Serializable {
         o.setTotal(calculateTotal(pizzaService));
         orderService.saveOrder(o);
         purchaseInfo.put("VK_STAMP", String.valueOf(orderService.getLast().getId()));
-        purchaseInfo.put("VK_AMOUNT", String.valueOf(calculateTotal(pizzaService)));
+        purchaseInfo.put("VK_AMOUNT", String.valueOf(Math.round(calculateTotal(pizzaService) * 100.0) / 100.0));
         purchaseInfo.put("VK_CURR", "EUR");
         purchaseInfo.put("VK_ACC", "EE871600161234567892");
         purchaseInfo.put("VK_NAME", "ÕIE MÄGER");

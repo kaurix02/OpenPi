@@ -1,6 +1,10 @@
 /*Overall*/
 body {
-    background-image: url("../resources/images/red_background.jpg");
+    //background-image: url("../resources/images/red_background.jpg");
+    background-image:
+    	linear-gradient(
+    		to right,
+    		#6a1413, #ca1a1a);
 }
 .nav-justified {
     border: 1px solid #ccc;
