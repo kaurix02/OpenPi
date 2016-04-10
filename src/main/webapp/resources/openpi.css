@@ -66,6 +66,11 @@ p.language {
     font-size: 30px;
 }
 
+#openpi_map {
+    width: 500px;
+    height: 400px;
+}
+
 /*Registered User */
 .nav-justified > li#registeredUser {
     background-color: #ffb51a;

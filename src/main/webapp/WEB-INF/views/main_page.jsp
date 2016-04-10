@@ -16,6 +16,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
     <script src="<c:url value="/" />resources/js/fb_pizza.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initialize" async defer></script>
+    <script src="<c:url value="/" />resources/js/map_info.js"></script>
 </head>
 <body>
 <div class="container">
@@ -47,7 +49,7 @@
                 <c:if test="${!isEstonian}">Registration</c:if>
             </a></p>
         </c:if>
-
+        <div id="openpi_map" onload="initialize()"></div>
     </div>
     <div class="language">
         <form method="post">
