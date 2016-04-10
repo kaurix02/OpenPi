@@ -96,3 +96,6 @@ function testAPI() {
         console.log('Successful login for: ' + response.name);
     });
 }
+
+
+$('[data-toggle="tooltip"]').tooltip();

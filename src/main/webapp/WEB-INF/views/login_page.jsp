@@ -30,8 +30,8 @@
             <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
             <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
             <li class="active"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisselogimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
-            <li><a href="#"><c:if test="${isEstonian}">Meist</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
-            <li><a href="#"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
+            <li><a href="<c:url value="/about" />"><c:if test="${isEstonian}">Meist</c:if> <c:if test="${!isEstonian}">About Us</c:if></a></li>
+            <li><a href="<c:url value="/contact" />"><c:if test="${isEstonian}">Kontakt</c:if> <c:if test="${!isEstonian}">Contact</c:if></a></li>
             <li><a href="<c:url value="/funpizzafacts" />"><c:if test="${isEstonian}">Pitsa Faktid</c:if> <c:if test="${!isEstonian}">Fun Pizza Facts</c:if></a></li>
         </ul>
     </nav>
@@ -61,9 +61,9 @@
                     <div class="alert alert-success" role="alert">You have been logged out successfully.</div>
                 </c:if>
                 <label for="loginEmail" class="sr-only">Email address</label>
-                <input type="text" name="email" class="form-control" id="loginEmail" placeholder="Email address" required/>
+                <input data-toggle="tooltip" title="Enter email address" type="text" name="email" class="form-control" id="loginEmail" placeholder="Email address" required/>
                 <label for="loginPassword" class="sr-only">Password</label>
-                <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" required/>
+                <input data-toggle="tooltip" title="At least 8 letters!" type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" required/>
                 <input type="hidden" name="${_csrf.parameterName}"  value="${_csrf.token}" />
                 <button type="button" class="btn btn-lg btn-primary btn-block" id="loginButton">Log In</button>
 

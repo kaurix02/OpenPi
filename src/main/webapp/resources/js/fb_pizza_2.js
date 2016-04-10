@@ -61,3 +61,6 @@ window.addEventListener('pushstate', function(event)
         document.getElementById("fun-fact").innerHTML = history.state.fact;
     }
 });
+
+
+$('[data-toggle="tooltip"]').tooltip();

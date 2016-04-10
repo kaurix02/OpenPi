@@ -45,3 +45,6 @@ element.addEventListener("click", function(event) {
         document.getElementById("registrationForm").submit();
     }
 });
+
+
+$('[data-toggle="tooltip"]').tooltip();

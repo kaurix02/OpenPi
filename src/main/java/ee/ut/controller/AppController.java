@@ -61,9 +61,9 @@ public class AppController {
     private boolean isEstonian = false;
 
     public static ArrayList<PizzaFact> pizzaFacts = new ArrayList<>(Arrays.asList(
-            new PizzaFact("1", "Lol fact"),
-            new PizzaFact("2", "Lol fa2ct"),
-            new PizzaFact("3", "Lol f3ct"),
+            new PizzaFact("1", "Over 5 billion pizzas are sold worldwide each year."),
+            new PizzaFact("2", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds"),
+            new PizzaFact("3", "The longest pizza delivery was from Cape Town, South Africa to Sydney, Australia"),
             new PizzaFact("4", "Lol fa4ct"),
             new PizzaFact("5", "Lol fa5ct")
     ));
@@ -116,6 +116,22 @@ public class AppController {
         model.addAttribute("isEstonian", isEstonian);
         model.addAttribute("user", user);
         return "registration_page";
+    }
+
+    @RequestMapping(value = {"/about"}, method = RequestMethod.GET)
+    public String aboutPage(ModelMap model){
+        User user = new User();
+        model.addAttribute("isEstonian", isEstonian);
+        model.addAttribute("user", user);
+        return "about_page";
+    }
+
+    @RequestMapping(value = {"/contact"}, method = RequestMethod.GET)
+    public String contactPage(ModelMap model){
+        User user = new User();
+        model.addAttribute("isEstonian", isEstonian);
+        model.addAttribute("user", user);
+        return "contact_page";
     }
 
     @RequestMapping(value = {"/funpizzafacts"}, method = RequestMethod.GET)

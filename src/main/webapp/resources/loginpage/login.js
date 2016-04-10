@@ -4,3 +4,6 @@ element.addEventListener("click", function(event) {
     document.getElementById("loginPassword").value = calcMD5(temp);
     document.getElementById("loginForm").submit();
 });
+
+
+$('[data-toggle="tooltip"]').tooltip();
