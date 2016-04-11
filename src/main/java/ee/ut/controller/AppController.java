@@ -64,8 +64,14 @@ public class AppController {
             new PizzaFact("1", "Over 5 billion pizzas are sold worldwide each year."),
             new PizzaFact("2", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds"),
             new PizzaFact("3", "The longest pizza delivery was from Cape Town, South Africa to Sydney, Australia"),
-            new PizzaFact("4", "Lol fa4ct"),
-            new PizzaFact("5", "Lol fa5ct")
+            new PizzaFact("4", "Saturday night is the most popular night to eat pizza"),
+            new PizzaFact("5", "Pizza Deliverers claim women are better tippers"),
+            new PizzaFact("6", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds"),
+            new PizzaFact("7", "The longest pizza delivery was from Cape Town, South Africa to Sydney, Australia"),
+            new PizzaFact("8", "Saturday night is the most popular night to eat pizza"),
+            new PizzaFact("9", "Pizza Deliverers claim women are better tippers"),
+            new PizzaFact("10", "36 percentage of people consider pizza the perfect breakfast"),
+            new PizzaFact("11", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds")
     ));
 
     /*
