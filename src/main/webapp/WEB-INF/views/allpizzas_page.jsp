@@ -85,8 +85,11 @@
                     <c:if test="${isShopping}">
                         <c:forEach items="${shoppingCart}" var="cart">
                             <li id="pizza${cart}">${cart.key} : ${cart.value}tk</li>
+                            <li><button class="btn btn-sm btn-success addPizzaAdditional" id="add${cart}">
+                                +
+                            </button></li>
                             <li><button class="btn btn-sm btn-danger removePizza" id="${cart}">
-                                <c:if test="${isEstonian}">Eemaldat</c:if> <c:if test="${!isEstonian}">Remove</c:if>
+                                -
                             </button></li>
                         </c:forEach>
                         <c:if test="${shoppingCart.size() > 0}">
