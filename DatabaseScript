@@ -73,20 +73,11 @@ VALUES ('ADMIN');
 INSERT INTO pizzas(naming, description, price) VALUES ('Pizza1', 'Test Pizza 1', '11.3');
 INSERT INTO pizzas(naming, description, price) VALUES ('Pizza2', 'Test Pizza 2', '15.0');
 
-aiven_old:
-jdbc.driverClassName = org.postgresql.Driver
-jdbc.url = jdbc:postgresql://openpiservice.prj-wml3lj.aivencloud.com:12550/d1p5e0e5?sslmode=require
-jdbc.username = u0b7t7t6
-jdbc.password = eb1rqajli0ilsh3l
-hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
-hibernate.show_sql = true
-hibernate.format_sql = true
-
 aiven_new:
 jdbc.driverClassName = org.postgresql.Driver
-jdbc.url = jdbc:postgresql://openpi.prj-gd88qp.aivencloud.com:27605/d2d6z9h0?sslmode=require
-jdbc.username = u4t6u1n3
-jdbc.password = hladdcmii4lwsaev
+jdbc.url = jdbc:postgresql://openpi.prj-ldozib.aivencloud.com:28274/d3u5d9i9?sslmode=require
+jdbc.username = u3p5w2t1
+jdbc.password = kxb2dos19zsu7m8s
 hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
 hibernate.show_sql = true
 hibernate.format_sql = true
