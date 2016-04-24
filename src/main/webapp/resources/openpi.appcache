@@ -1,0 +1,9 @@
+CACHE MANIFEST
+#CACHE:
+#WEB-INF/views/offline_page.jsp
+#NETWORK:
+#*
+#FALLBACK:
+#/ WEB-INF/views/offline_page.jsp
+
+#Cannot change mime to accept appcache files on Azure due to lack of access to the server side.
