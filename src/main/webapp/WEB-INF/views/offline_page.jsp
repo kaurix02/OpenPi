@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>About us</title>
+    <title>OpenPi Offline</title>
     <link href="<c:url value="/" />resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -39,45 +39,17 @@
         <div class="col-md-9" role="main">
             <div class="bs-docs-section">
                 <c:if test="${isEstonian}">
-                    <h1 id="history" class="page-header">History</h1>
+                    <h1 id="history" class="page-header">Võrguühenduse probleem</h1>
                     <p class="lead">
-                        Originally created by a designer and a developer at Twitter,
-                        Bootstrap has become one of the most popular front-end frameworks
-                        and open source projects in the world.
-                    </p>
-                    <p class="lead">Bootstrap was created at Twitter in mid-2010 by.
-                        Prior to being an open-sourced framework, Bootstrap was known as
-                        <em>Twitter Blueprint</em>. A few months into development, Twitter held its
-                        and the project exploded as developers of all skill levels jumped in without any external guidance.
-                        It served as the style guide for internal tools development at the company for over a year before
-                        its public release, and continues to do so today.
-                    </p>
-                    <p class="lead">Originallytwenty releases
-                        including two major rewrites with v2 and v3. With Bootstrap 2,
-                        we added responsive functionality to the entire framework as an optional stylesheet.
-                        Building on that with Bootstrap 3, we rewrote the library once more to make it responsive
-                        by default with a mobile first approach.
+                        Kahjuks kaotasime Teiega ühenduse. Kontrollige, kas Teil on ühendus
+                        Internetiga ning proovige uuesti!
                     </p>
                 </c:if>
                 <c:if test="${!isEstonian}">
-                    <h1 id="history" class="page-header">History</h1>
+                    <h1 id="history" class="page-header">Network problem</h1>
                     <p class="lead">
-                        Originally created by a designer and a developer at Twitter,
-                        Bootstrap has become one of the most popular front-end frameworks
-                        and open source projects in the world.
-                    </p>
-                    <p>Bootstrap was created at Twitter in mid-2010 by.
-                        Prior to being an open-sourced framework, Bootstrap was known as
-                        <em>Twitter Blueprint</em>. A few months into development, Twitter held its
-                        and the project exploded as developers of all skill levels jumped in without any external guidance.
-                        It served as the style guide for internal tools development at the company for over a year before
-                        its public release, and continues to do so today.
-                    </p>
-                    <p>Originallytwenty releases
-                        including two major rewrites with v2 and v3. With Bootstrap 2,
-                        we added responsive functionality to the entire framework as an optional stylesheet.
-                        Building on that with Bootstrap 3, we rewrote the library once more to make it responsive
-                        by default with a mobile first approach.
+                        Unfortunately we have lost a connection with you. Please make sure
+                        that you are connected to the Internet and try again.
                     </p>
                 </c:if>
             </div>

@@ -21,6 +21,7 @@ window.fbAsyncInit = function() {
 
 
 var getFact = function(getNextId) {
+	
     var nextId = null
     if (getNextId) {
         var nextId = parseInt(window.location.hash.replace("#", "")) + 1;
@@ -29,6 +30,7 @@ var getFact = function(getNextId) {
         var nextId = window.location.hash.replace("#", "")
     }
     var url = window.location.origin  + "/OpenPi/funpizzafacts/iwantsomefact?id=" + nextId;
+    
     $.ajax({
         type: "GET",
         url: url,
@@ -36,6 +38,7 @@ var getFact = function(getNextId) {
             var url = window.location.origin  + "/OpenPi/funpizzafacts#" + response.id;
             history.pushState(response, null, url);
             document.getElementById("fun-fact").innerHTML = response.fact;
+            
         },
         error: function (response) {
             console.log(response);
@@ -44,11 +47,16 @@ var getFact = function(getNextId) {
         contentType: 'application/json; charset=utf-8'
     });
 };
+var getFactWait = function(){
+	setInterval(function(){
+		getFact(true);},10000);
+};
 var currentState = history.state;
 if (!history.state){
     window.location = '#';
 }
-getFact(false);
+//getFact(false);
+getFactWait();
 window.addEventListener('popstate', function(event)
 {
     if(history.state){

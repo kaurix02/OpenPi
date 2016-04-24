@@ -1,0 +1,9 @@
+<!DOCTYPE HTML>
+ <html manifest="openpi.appcache">
+ CACHE:
+ resources/*
+ NETWORK:
+ *
+ FALLBACK:
+ * views/offline_page.jsp
+ </html> 
