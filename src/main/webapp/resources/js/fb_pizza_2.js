@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
 
 
 var getFact = function(getNextId) {
-	
+	if(navigator.onLine){
     var nextId = null
     if (getNextId) {
         var nextId = parseInt(window.location.hash.replace("#", "")) + 1;
@@ -46,6 +46,10 @@ var getFact = function(getNextId) {
         dataType: "json",
         contentType: 'application/json; charset=utf-8'
     });
+    }
+	else{
+		document.getElementById("fun-fact").innerHTML = "You only need the 'net to order a pizza. We hope you are enjoying a delicious pizza right now!";
+	}
 };
 var getFactWait = function(){
 	setInterval(function(){
