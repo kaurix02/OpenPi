@@ -127,6 +127,10 @@ public class AppController {
     @RequestMapping(value = {"/about"}, method = RequestMethod.GET)
     public String aboutPage(ModelMap model){
         User user = new User();
+        if (!(new OverallHelp().getPrincipal() == null)){
+            model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
+            model.addAttribute("isAuthorized", true);
+        } else model.addAttribute("isAuthorized", false);
         model.addAttribute("isEstonian", isEstonian);
         model.addAttribute("user", user);
         return "about_page";
@@ -135,6 +139,10 @@ public class AppController {
     @RequestMapping(value = {"/contact"}, method = RequestMethod.GET)
     public String contactPage(ModelMap model){
         User user = new User();
+        if (!(new OverallHelp().getPrincipal() == null)){
+            model.addAttribute("userFirstName", userService.findUserByEmail(new OverallHelp().getPrincipal()).getFirstName());
+            model.addAttribute("isAuthorized", true);
+        } else model.addAttribute("isAuthorized", false);
         model.addAttribute("isEstonian", isEstonian);
         model.addAttribute("user", user);
         return "contact_page";
