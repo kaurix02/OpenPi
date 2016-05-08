@@ -89,14 +89,12 @@ function calcMD5(str)
     b = -271733879;
     c = -1732584194;
     d =  271733878;
-
     for(i = 0; i < x.length; i += 16)
     {
         olda = a;
         oldb = b;
         oldc = c;
         oldd = d;
-
         a = ff(a, b, c, d, x[i+ 0], 7 , -680876936);
         d = ff(d, a, b, c, x[i+ 1], 12, -389564586);
         c = ff(c, d, a, b, x[i+ 2], 17,  606105819);
@@ -113,7 +111,6 @@ function calcMD5(str)
         d = ff(d, a, b, c, x[i+13], 12, -40341101);
         c = ff(c, d, a, b, x[i+14], 17, -1502002290);
         b = ff(b, c, d, a, x[i+15], 22,  1236535329);
-
         a = gg(a, b, c, d, x[i+ 1], 5 , -165796510);
         d = gg(d, a, b, c, x[i+ 6], 9 , -1069501632);
         c = gg(c, d, a, b, x[i+11], 14,  643717713);
@@ -130,7 +127,6 @@ function calcMD5(str)
         d = gg(d, a, b, c, x[i+ 2], 9 , -51403784);
         c = gg(c, d, a, b, x[i+ 7], 14,  1735328473);
         b = gg(b, c, d, a, x[i+12], 20, -1926607734);
-
         a = hh(a, b, c, d, x[i+ 5], 4 , -378558);
         d = hh(d, a, b, c, x[i+ 8], 11, -2022574463);
         c = hh(c, d, a, b, x[i+11], 16,  1839030562);
@@ -147,7 +143,6 @@ function calcMD5(str)
         d = hh(d, a, b, c, x[i+12], 11, -421815835);
         c = hh(c, d, a, b, x[i+15], 16,  530742520);
         b = hh(b, c, d, a, x[i+ 2], 23, -995338651);
-
         a = ii(a, b, c, d, x[i+ 0], 6 , -198630844);
         d = ii(d, a, b, c, x[i+ 7], 10,  1126891415);
         c = ii(c, d, a, b, x[i+14], 15, -1416354905);
@@ -164,7 +159,6 @@ function calcMD5(str)
         d = ii(d, a, b, c, x[i+11], 10, -1120210379);
         c = ii(c, d, a, b, x[i+ 2], 15,  718787259);
         b = ii(b, c, d, a, x[i+ 9], 21, -343485551);
-
         a = add(a, olda);
         b = add(b, oldb);
         c = add(c, oldc);

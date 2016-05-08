@@ -12,10 +12,10 @@
     <link href="<c:url value="/" />resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
-    <script src="<c:url value="/" />resources/js/fb_pizza_2.js"></script>
+    <script async src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
+    <script async src="<c:url value="/" />resources/js/fb_pizza_2.js"></script>
 </head>
 <body>
 <div class="container">

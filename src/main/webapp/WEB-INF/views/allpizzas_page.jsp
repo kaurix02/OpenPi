@@ -14,17 +14,17 @@
     <c:if test="${isShopping}">
         <link href="<c:url value="/"/>resources/css/bootstrap.min.css"  rel="stylesheet"/>
         <link href="<c:url value="/"/>resources/openpi.css" rel="stylesheet"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="<c:url value="/"/>resources/js/bootstrap.min.js"></script>
+        <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script async src="<c:url value="/"/>resources/js/bootstrap.min.js"></script>
     </c:if>
     <c:if test="${!isShopping}">
         <link href="<c:url value="/" />resources/css/bootstrap.min.css"  rel="stylesheet"/>
         <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
+        <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script async src="<c:url value="/" />resources/js/bootstrap.min.js"></script>
     </c:if>
 
-    <script src="<c:url value="/"/>resources/js/fb_pizza.js"></script>
+    <script async src="<c:url value="/"/>resources/js/fb_pizza.js"></script>
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -117,7 +117,7 @@
 </div>
 </body>
 <c:if test="${isShopping}" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="<c:url value="/"/>resources/cart/cart.js"></script>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async src="<c:url value="/"/>resources/cart/cart.js"></script>
 </c:if>
 </html>

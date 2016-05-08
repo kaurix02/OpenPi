@@ -12,14 +12,14 @@
     <link href="<c:url value="/" />resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="<c:url value="/" />resources/openpi.css" rel="stylesheet">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="resources/js/bootstrap.min.js"><\/script>')</script>
 
-    <script src="<c:url value="/" />resources/js/fb_pizza.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initialize" async defer></script>
-    <script src="<c:url value="/" />resources/js/map_info.js"></script>
+    <script async src="<c:url value="/" />resources/js/fb_pizza.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?callback=initialize" async defer></script>
+    <script async src="<c:url value="/" />resources/js/map_info.js"></script>
 </head>
 <body>
 <div class="container">

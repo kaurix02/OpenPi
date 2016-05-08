@@ -94,6 +94,6 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!--script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 </body>
-<script src="<c:url value="/" />resources/registrationpage/registration.js"></script>
+<script async src="<c:url value="/" />resources/registrationpage/registration.js"></script>
 </body>
 </html>
