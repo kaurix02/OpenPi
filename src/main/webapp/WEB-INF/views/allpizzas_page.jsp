@@ -70,7 +70,7 @@
                         <tr>
                             <td class="tabeliCell" id="pizzaPicture${pizza.id}">
                                 <figure>
-                                    <img src="<c:url value="/" />resources/images/${pizza.id}.jpg">
+                                    <img src="<c:url value="/" />resources/images/${pizza.id}.jpg" alt="${pizza.naming}">
                                     <figcaption>${pizza.naming} <c:if test="${isEstonian}">Pilt</c:if> <c:if test="${!isEstonian}">Picture</c:if> </figcaption>
                                 </figure>
                             </td>
