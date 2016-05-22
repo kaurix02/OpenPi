@@ -58,7 +58,7 @@
             </p>
         </c:if>
         <c:if test="${!isEstonian}">
-            <h1 id="history" class="page-header">History</h1>
+            <h1 id="history" class="page-header">Contact</h1>
             <p class="lead">
                 To contact us, please speak to us directly. Good luck finding us. Authors: Alan Durnev, Anna Laaneväli, Kaur Karus.
             </p>
