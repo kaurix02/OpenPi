@@ -25,7 +25,18 @@
             <li class="active"><a href="<c:url value="/"/>"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
             <li><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
             <c:if test="${isAuthorized}">
-                <li id="registeredUser"><a href="<c:url value="/user"/>">${userFirstName}</a></li>
+                <li id="registeredUser" class="dropdown">
+                    <a href="#" class="disabled">
+                            ${userFirstName} <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<c:url value="/user"/>"><c:if test="${isEstonian}">Kasutaja</c:if> <c:if test="${!isEstonian}">User</c:if></a></li>
+                        <li><a href="<c:url value="/logout"/>"><c:if test="${isEstonian}">Logi välja</c:if> <c:if test="${!isEstonian}">Logout</c:if></a></li>
+                    </ul>
+                    <!--<a href="<c:url value="/user"/>">
+                        ${userFirstName}
+                    </a>-->
+                </li>
             </c:if>
             <c:if test="${!isAuthorized}">
                 <li id="unRegisteredUser"><a href="<c:url value="/login"/>"><c:if test="${isEstonian}">Sisselogimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>

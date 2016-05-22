@@ -6,6 +6,11 @@ body {
     		to right,
     		#6a1413, #ca1a1a);
 }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
 .nav-justified {
     border: 1px solid #ccc;
     background-color: #eee;
@@ -76,6 +81,9 @@ p.language {
 }
 
 /*Registered User */
+.nav-justified li#registeredUser.dropdown:hover ul.dropdown-menu {
+    display: block;
+}
 .nav-justified > li#registeredUser {
     background-color: #ffb51a;
 }

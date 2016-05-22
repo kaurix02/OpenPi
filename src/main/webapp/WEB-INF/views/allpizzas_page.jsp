@@ -39,7 +39,18 @@
             <li><a href="<c:url value="/" />"><c:if test="${isEstonian}">Kodu</c:if> <c:if test="${!isEstonian}">Home</c:if></a></li>
             <li class="active"><a href="<c:url value="/pizzas" />"><c:if test="${isEstonian}">Pitsad</c:if> <c:if test="${!isEstonian}">Pizzas</c:if></a></li>
             <c:if test="${isShopping}">
-                <li id="registeredUser"><a href="<c:url value="/user" />">${userFirstName}</a></li>
+                <li id="registeredUser" class="dropdown">
+                    <a href="#" class="disabled">
+                            ${userFirstName} <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<c:url value="/user"/>"><c:if test="${isEstonian}">Kasutaja</c:if> <c:if test="${!isEstonian}">User</c:if></a></li>
+                        <li><a href="<c:url value="/logout"/>"><c:if test="${isEstonian}">Logi välja</c:if> <c:if test="${!isEstonian}">Logout</c:if></a></li>
+                    </ul>
+                    <!--<a href="<c:url value="/user"/>">
+                        ${userFirstName}
+                    </a>-->
+                </li>
             </c:if>
             <c:if test="${!isShopping}">
                 <li id="unRegisteredUser"><a href="<c:url value="/login" />"><c:if test="${isEstonian}">Sisselogimine</c:if> <c:if test="${!isEstonian}">Log In</c:if></a></li>
@@ -65,6 +76,7 @@
                         <td><c:if test="${isEstonian}">Pilt</c:if> <c:if test="${!isEstonian}">Picture</c:if></td>
                         <td><c:if test="${isEstonian}">Nimetus</c:if> <c:if test="${!isEstonian}">Naming</c:if></td>
                         <td><c:if test="${isEstonian}">Kirjeldus</c:if> <c:if test="${!isEstonian}">Description</c:if></td>
+                        <td><c:if test="${isEstonian}">Hind (eur)</c:if> <c:if test="${!isEstonian}">Price(eur)</c:if></td>
                     </tr>
                     <c:forEach items="${pizzas}" var="pizza">
                         <tr>
@@ -76,6 +88,7 @@
                             </td>
                             <td class="tabeliCell" id="pizzaNaming${pizza.id}">${pizza.naming}</td>
                             <td class="tabeliCell" id="pizzaDescription${pizza.id}">${pizza.description}</td>
+                            <td class="tabeliCell" id="pizzaDescription${pizza.id}">${pizza.price}</td>
                             <c:if test="${isShopping}">
                                 <td><button type="button" class="btn btn-sm btn-warning addPizza tabeliCell" id="${pizza.id}" >
                                     <c:if test="${isEstonian}">Osta</c:if> <c:if test="${!isEstonian}">Buy</c:if>

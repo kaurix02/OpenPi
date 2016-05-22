@@ -42,6 +42,31 @@ public class Order {
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Order order = (Order) o;
+
+        if (id != order.id) return false;
+        if (user != null ? !user.equals(order.user) : order.user != null) return false;
+        if (total != null ? !total.equals(order.total) : order.total != null) return false;
+        if (isDone != null ? !isDone.equals(order.isDone) : order.isDone != null) return false;
+        return soldPizzas != null ? soldPizzas.equals(order.soldPizzas) : order.soldPizzas == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (total != null ? total.hashCode() : 0);
+        result = 31 * result + (isDone != null ? isDone.hashCode() : 0);
+        result = 31 * result + (soldPizzas != null ? soldPizzas.hashCode() : 0);
+        return result;
+    }
+
     public void setId(int id) {
         this.id = id;
     }

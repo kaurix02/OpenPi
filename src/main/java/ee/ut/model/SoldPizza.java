@@ -49,5 +49,8 @@ public class SoldPizza {
         this.amount = amount;
     }
 
+    public String toString() {
+        return pizza.getNaming() + ": " + getAmount();
+    }
 
 }
