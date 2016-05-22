@@ -55,16 +55,30 @@
         <div class="col-md-9" role="main">
             <div class="bs-docs-section">
                 <c:if test="${isEstonian}">
-                    <h1 id="history" class="page-header">Veebilehest</h1>
+                    <h1 id="history" class="page-header">Ajalugu</h1>
                     <p class="lead">
-                        Kursuse 'Veebirakenduste loomine' raames tehtud projekt. Autorid: Alan Durnev, Kaur Karus, Anna Laaneväli.
+                        Itaalia köögi kõige suurepärasemad näited leiab alati just kodustest pererestoranidest.
+                        Omalaadne segu kodustest maitsetest, ema või vanaema traditsioonidest ja ainulaadne itaalialik
+                        elegants pakub tihti kõige lummavamaid lõuna- või õhtusöögielamusi. Just seda OpenPi pakubki,
+                        võimalust nautida peakokk Nicolo Tanda poolt valmistatud ehedaid toite tema Sardiiniast pärit
+                        ema retseptikogust.Süües neid toite on kerge mõista, et ema oli see,
+                        kelle kirg söögi vastu tõi ka Nicolo toiduvalmistamise juurde.
                     </p>
                 </c:if>
                 <c:if test="${!isEstonian}">
-                    <h1 id="history" class="page-header">About Website</h1>
+                    <h1 id="history" class="page-header">About Us</h1>
                     <p class="lead">
-                        A webpage created for the course 'Web Application Development'. Authors: Alan Durnev, Anna Laaneväli, Kaur Karus.
+                        Italy one can always find most excellent examples
+                        of the Italian cuisine from homely family restaurants.
+                        A kind of a mixture of home-made tastes, mother’s or grandmother’s
+                        traditions and a unique elegance often offers in Italy the most
+                        fascinating lunch or dinner experience. That’s exactly what OpenPi
+                        is offering –  a chance to enjoy the chef’s Nicolo Tanda authentic dishes
+                        prepared from the recipe collection by his mother from Sardinia. By eating
+                        these foods is easy to understand that mother’s passion for food was the
+                        one what brought Nicolo to cooking.
                     </p>
+
                 </c:if>
             </div>
         </div>

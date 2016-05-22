@@ -69,9 +69,15 @@ public class AppController {
             new PizzaFact("6", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds"),
             new PizzaFact("7", "The longest pizza delivery was from Cape Town, South Africa to Sydney, Australia"),
             new PizzaFact("8", "Saturday night is the most popular night to eat pizza"),
-            new PizzaFact("9", "Pizza Deliverers claim women are better tippers"),
-            new PizzaFact("10", "36 percentage of people consider pizza the perfect breakfast"),
-            new PizzaFact("11", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds")
+            new PizzaFact("9", "Pizzerias represent 17 percent of all restaurants"),
+            new PizzaFact("10", "The world's fastest pizza maker can make 14 pizza in 2 minutes and 35 seconds"),
+            new PizzaFact("11", "What has been called \"the world's most extravagant pizza\" is available at New York's Nino's Bellissima restaurant. Topped with six varieties of caviar, chives, fresh lobster and creme fraiche, this 12-inch pie, called the \"Luxury Pizza,\" retails at $1,000.00 (or $125.00 a slice)"),
+            new PizzaFact("12", "The most popular pizza size in the U.S. today is 14 inches in diameter"),
+            new PizzaFact("13", "Women are twice as likely as men to order vegetables on their pizza"),
+            new PizzaFact("14", "Some popular pizza toppings in Japan are squid and Mayo Jaga (mayonaise, potato and bacon)"),
+            new PizzaFact("15", "The word “pizza” dates back over a thousand years—it was first mentioned in a Latin text written in southern Italy in 997 CE"),
+            new PizzaFact("16", "In 1835, Alexandre Dumas, author of The Three Musketeers, traveled to Naples, where he observed that the Neapolitan poor ate nothing but watermelon during the summer and pizza during the winter"),
+            new PizzaFact("17", " During the first few decades of the 20th century, pizza was predominantly eaten and sold by working class Italian immigrants")
     ));
 
     /*

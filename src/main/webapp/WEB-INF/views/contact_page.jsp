@@ -52,16 +52,32 @@
     <!-- Container -->
     <div class="container">
         <c:if test="${isEstonian}">
-            <h1 id="history" class="page-header">Kontakt</h1>
+            <h1 id="history" class="page-header">Kontaktid</h1>
             <p class="lead">
-                Lehe tegijatega kontakti saamiseks palume eelistada silmast-silma vestlust. Lehe autorid: Alan Durnev, Anna Laaneväli, Kaur Karus.
+                Oleme avatud: <br>
+                E-N 12-23,<br>
+                R-L 12-24,<br>
+                P 13-22<br>
             </p>
+            <p>
+                Küsimused: info@openpi.ee<br>
+                Laudade reserveerimine: +372 689 587 54
+            </p>
+
         </c:if>
         <c:if test="${!isEstonian}">
-            <h1 id="history" class="page-header">Contact</h1>
+            <h1 id="history" class="page-header">Contacts</h1>
             <p class="lead">
-                To contact us, please speak to us directly. Good luck finding us. Authors: Alan Durnev, Anna Laaneväli, Kaur Karus.
+                We are open: <br>
+                Monday-Thursday 12-23,<br>
+                Friday-Saturday 12-24,<br>
+                Sunday 13-22<br>
             </p>
+            <p>
+                Information: info@openpi.ee<br>
+                Reservations: +372 689 587 54
+            </p>
+
         </c:if>
     </div>
 </div> <!-- /container -->
