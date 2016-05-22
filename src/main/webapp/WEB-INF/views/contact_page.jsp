@@ -52,28 +52,28 @@
     <!-- Container -->
     <div class="container">
         <c:if test="${isEstonian}">
-            <h1 id="history" class="page-header">Kontaktid</h1>
+            <h1 style="color: white;" id="history" class="page-header">Kontaktid</h1>
             <p class="lead">
                 Oleme avatud: <br>
                 E-N 12-23,<br>
                 R-L 12-24,<br>
                 P 13-22<br>
             </p>
-            <p>
+            <p style="color: white;">
                 Küsimused: info@openpi.ee<br>
                 Laudade reserveerimine: +372 689 587 54
             </p>
 
         </c:if>
         <c:if test="${!isEstonian}">
-            <h1 id="history" class="page-header">Contacts</h1>
+            <h1 style="color: white;" id="history" class="page-header">Contacts</h1>
             <p class="lead">
                 We are open: <br>
                 Monday-Thursday 12-23,<br>
                 Friday-Saturday 12-24,<br>
                 Sunday 13-22<br>
             </p>
-            <p>
+            <p style="color: white;">
                 Information: info@openpi.ee<br>
                 Reservations: +372 689 587 54
             </p>

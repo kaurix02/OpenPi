@@ -55,7 +55,7 @@
         <div class="col-md-9" role="main">
             <div class="bs-docs-section">
                 <c:if test="${isEstonian}">
-                    <h1 id="history" class="page-header">Ajalugu</h1>
+                    <h1 style="color: white;" id="history" class="page-header">Ajalugu</h1>
                     <p class="lead">
                         Itaalia köögi kõige suurepärasemad näited leiab alati just kodustest pererestoranidest.
                         Omalaadne segu kodustest maitsetest, ema või vanaema traditsioonidest ja ainulaadne itaalialik
@@ -66,7 +66,7 @@
                     </p>
                 </c:if>
                 <c:if test="${!isEstonian}">
-                    <h1 id="history" class="page-header">About Us</h1>
+                    <h1 style="color: white;" id="history" class="page-header">About Us</h1>
                     <p class="lead">
                         Italy one can always find most excellent examples
                         of the Italian cuisine from homely family restaurants.
